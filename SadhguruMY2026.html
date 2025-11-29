@@ -5,6 +5,19 @@
   <title>Sadhguru in Malaysia 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Social share preview (OG + Twitter) -->
+  <meta property="og:title" content="Sadhguru in Malaysia 2026 — Countdown" />
+  <meta property="og:description" content="A gentle reminder that every moment is moving us closer to Sadhguru’s visit to Malaysia. May this countdown be a nudge to keep your inner work alive." />
+  <meta property="og:image" content="https://i.imgur.com/2EgTWuw.jpeg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sadhguru in Malaysia 2026 — Countdown" />
+  <meta name="twitter:description" content="A gentle reminder that every moment is moving us closer to Sadhguru’s visit to Malaysia. May this countdown be a nudge to keep your inner work alive." />
+  <meta name="twitter:image" content="https://i.imgur.com/2EgTWuw.jpeg" />
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet"/>
 
@@ -62,14 +75,20 @@
       box-shadow:0 22px 55px rgba(0,0,0,0.35);
     }
 
+    /* Hero image block (now visible on desktop AND mobile) */
+    .hero-photo{
+      display:block;
+      height:260px;
+      background-image:url("https://i.imgur.com/2EgTWuw.jpeg");
+      background-position:center;
+      background-size:cover;
+      border-radius:18px;
+      margin:0 0 12px;
+    }
+
     /* Hero (text) */
     .hero{
       margin-bottom:8px;
-    }
-
-    /* Hidden hero image by default (desktop only) */
-    .hero-photo{
-      display:none;
     }
 
     h1{
@@ -298,7 +317,7 @@
       opacity:.9;
     }
 
-    /* 🔽 UPDATED FOOTER NOTES STYLE */
+    /* Footer notes */
     .footer-notes{
       margin-top:14px;
     }
@@ -336,7 +355,7 @@
 
       /* 3) Hero image INSIDE the card + glassmorphism + side padding */
       .card{
-        padding:0 14px 14px; /* 🔹 side padding added */
+        padding:0 14px 14px; /* side padding added */
         border-radius:18px;
         overflow:hidden;
         background:rgba(255,255,255,0.78);
@@ -346,16 +365,16 @@
       }
 
       .hero-photo{
-        display:block;
         height:220px;
         background-image:url("https://i.imgur.com/2EgTWuw.jpeg");
         background-position:center;
         background-size:cover;
-        margin:0 -14px 0; /* 🔹 full-bleed image inside padded card */
+        margin:0 -14px 12px; /* full-bleed image inside padded card */
+        border-radius:0 0 0 0;
       }
 
       .hero{
-        padding:16px 0 0;
+        padding:0;
         margin-bottom:8px;
       }
 
@@ -377,7 +396,7 @@
 <body>
   <div class="overlay">
     <main class="card">
-      <!-- Mobile hero image (shown only on small screens) -->
+      <!-- Hero image (desktop + mobile) -->
       <div class="hero-photo" aria-hidden="true"></div>
 
       <!-- Hero (text) -->
@@ -385,7 +404,9 @@
         <p class="subtitle">
         </p>
       </div>
-       <section class="reg">
+
+      <!-- Intro + registration (top) -->
+      <section class="reg">
         <p>
           Please note: the program date is tentative and may change if the need arises.
           To stay updated on any changes and be informed when registrations open,
@@ -396,11 +417,12 @@
             https://iyg.to/eoe-eoi/555367/RY4X99
           </a>
         </p>
-         <p class="subtitle">
+        <p class="subtitle">
           A gentle reminder on your screen that every moment is moving us closer to Sadhguru’s visit to Malaysia.
           May this countdown be a nudge to keep your inner work alive.
         </p>
       </section>
+
       <!-- Main countdown -->
       <section class="primary-section">
         <div class="section-title">Countdown to Sadhguru in Malaysia</div>
@@ -460,13 +482,14 @@
         </div>
       </section>
 
-      <!-- Registration & disclaimer -->
+      <!-- Registration & disclaimer (bottom) -->
       <section class="reg">
         <p class="disclaimer">
           By registering your interest you will receive updates on final dates, venue,
           and related volunteer information for Sadhguru in Malaysia 2026.
         </p>
       </section>
+
       <section class="footer-notes">
         <p>
           A volunteer-made space for fellow seekers • Unofficial, independent, and from the heart.
@@ -564,54 +587,54 @@
 
     // --- Quotes carousel ---
     const quotes = [
-    `What you do is not the point. It is the level of Involvement Within You that Transforms you.`,
-    `If you are truly Conscious, there is only one place you can be: NOW.`,
-    `Who and what you are is an expression of the Divine.`,
-    `Your ability to love is unlimited. When you Become Love, you can hold the whole universe in your love.`,
-    // November 25, 2025
-    `The first step you need to take is to acknowledge that, whatever happens, your Life is your Responsibility.`,
-  
-    // November 23, 2025
-    `If you are truly Conscious, there is only one place you can be: NOW.`,
-  
-    // November 13, 2025
-    `Time is slipping away for all of us at the same pace. You cannot manage time, but you can manage your Energy.`,
-  
-    // November 09, 2025
-    `Anything you respond to willingly becomes yours. If you consciously respond to everything you come in touch with, the entire universe becomes Yours.`,
-  
-    // November 06, 2025 — ADAPTED (original was longer than I can quote verbatim)
-    `The most beautiful moments of love, creativity, music, dance and laughter happen when you step aside and allow life to flow in abandon.`,
-  
-    // November 02, 2025
-    `Every other creature on the planet is doing its Best. Only human beings hesitate...`,
-  
-    // November 01, 2025
-    `To Love the person who is next to you is the biggest challenge. To Love someone who is not here is always easy.`,
-  
-    // October 31, 2025
-    `Look at how much time you spend on survival aspects, and how much on creative aspects. Time is not money – Time Is Life.`,
-  
-    // October 24, 2025
-    `There is no need to be perfect. What is important is that you are constantly Striving to Be Better.`,
-  
-    // October 22, 2025
-    `If you look at the world today, lies are mainstream – Truth is a fringe phenomenon. It is time to reverse that.`,
-  
-    // October 15, 2025
-    `A situation becomes stressful only when you compulsively react to it.`,
-  
-    // October 14, 2025
-    `My only intention is that you blossom into a Full-fledged Life – that is all Life is about.`,
-  
-    // October 12, 2025 — ADAPTED
-    `When your humanity flows freely, you naturally reach out to life around you – not from morality, but from the nature of a human heart.`,
-  
-    // October 04, 2025
-    `Our presence here is just for a short period of time. We do not have to shorten it by fighting each other.`
-  ];
+      `What you do is not the point. It is the level of Involvement Within You that Transforms you.`,
+      `If you are truly Conscious, there is only one place you can be: NOW.`,
+      `Who and what you are is an expression of the Divine.`,
+      `Your ability to love is unlimited. When you Become Love, you can hold the whole universe in your love.`,
 
-    
+      // November 25, 2025
+      `The first step you need to take is to acknowledge that, whatever happens, your Life is your Responsibility.`,
+
+      // November 23, 2025
+      `If you are truly Conscious, there is only one place you can be: NOW.`,
+
+      // November 13, 2025
+      `Time is slipping away for all of us at the same pace. You cannot manage time, but you can manage your Energy.`,
+
+      // November 09, 2025
+      `Anything you respond to willingly becomes yours. If you consciously respond to everything you come in touch with, the entire universe becomes Yours.`,
+
+      // November 06, 2025 — ADAPTED
+      `The most beautiful moments of love, creativity, music, dance and laughter happen when you step aside and allow life to flow in abandon.`,
+
+      // November 02, 2025
+      `Every other creature on the planet is doing its Best. Only human beings hesitate...`,
+
+      // November 01, 2025
+      `To Love the person who is next to you is the biggest challenge. To Love someone who is not here is always easy.`,
+
+      // October 31, 2025
+      `Look at how much time you spend on survival aspects, and how much on creative aspects. Time is not money – Time Is Life.`,
+
+      // October 24, 2025
+      `There is no need to be perfect. What is important is that you are constantly Striving to Be Better.`,
+
+      // October 22, 2025
+      `If you look at the world today, lies are mainstream – Truth is a fringe phenomenon. It is time to reverse that.`,
+
+      // October 15, 2025
+      `A situation becomes stressful only when you compulsively react to it.`,
+
+      // October 14, 2025
+      `My only intention is that you blossom into a Full-fledged Life – that is all Life is about.`,
+
+      // October 12, 2025 — ADAPTED
+      `When your humanity flows freely, you naturally reach out to life around you – not from morality, but from the nature of a human heart.`,
+
+      // October 04, 2025
+      `Our presence here is just for a short period of time. We do not have to shorten it by fighting each other.`
+    ];
+
     function shuffle(arr){
       for(let i = arr.length - 1; i > 0; i--){
         const j = Math.floor(Math.random() * (i + 1));
