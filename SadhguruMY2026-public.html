@@ -556,12 +556,14 @@
       }
 
       // Time elapsed since first volunteer meeting
-      const meetDiff = diffInCalendarUnits(MEETING_DATE, now);
       const meetCombinedEl = document.getElementById("meetCombined");
-      const meetMonthsPart = plural(meetDiff.totalMonths, "month");
-      const meetDaysPart   = plural(meetDiff.days, "day");
-      const meetTimePart   = `${pad(meetDiff.hours)}:${pad(meetDiff.minutes)}:${pad(meetDiff.seconds)}`;
-      meetCombinedEl.textContent = `${meetMonthsPart} · ${meetDaysPart} · ${meetTimePart}`;
+      if (meetCombinedEl) {
+        const meetDiff = diffInCalendarUnits(MEETING_DATE, now);
+        const meetMonthsPart = plural(meetDiff.totalMonths, "month");
+        const meetDaysPart   = plural(meetDiff.days, "day");
+        const meetTimePart   = `${pad(meetDiff.hours)}:${pad(meetDiff.minutes)}:${pad(meetDiff.seconds)}`;
+        meetCombinedEl.textContent = `${meetMonthsPart} · ${meetDaysPart} · ${meetTimePart}`;
+      }
     }
 
     updateTimers();
