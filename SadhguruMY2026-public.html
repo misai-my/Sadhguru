@@ -58,14 +58,14 @@
 
     .overlay{
       width:100%;
-      max-width:1120px;
+      max-width:none; /* full width on desktop */
       padding:18px;
       background:radial-gradient(circle at top,rgba(255,255,255,0.10),rgba(255,255,255,0.06));
       backdrop-filter:blur(2px);
     }
 
     .card{
-      max-width:980px;
+      max-width:none; /* full width on desktop */
       margin:0 auto;
       width:100%;
       padding:20px 20px 18px;
@@ -274,7 +274,7 @@
       font-size:1.15rem;
       line-height:1;
       padding:0;
-      transition:background .2s,color .2s,transform .15s,box-shadow .15s;
+      transition:background .15s,color .15s,transform .15s,box-shadow .15s;
     }
 
     .nav-btn:hover{
@@ -368,6 +368,14 @@
       color:var(--muted);
       font-style:italic;
       line-height:1.4;
+    }
+
+    /* Desktop-only: narrow & center the hero image so it doesn't feel cropped */
+    @media (min-width:900px){
+      .hero-photo{
+        max-width:720px;
+        margin:0 auto 16px;
+      }
     }
 
     /* Tablet */
@@ -601,7 +609,7 @@
         }
       }
 
-      // Time elapsed since first volunteer meeting
+      // Time elapsed since first volunteer meeting (only if element exists)
       const meetCombinedEl = document.getElementById("meetCombined");
       if (meetCombinedEl) {
         const meetDiff = diffInCalendarUnits(MEETING_DATE, now);
