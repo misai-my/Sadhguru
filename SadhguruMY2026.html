@@ -32,7 +32,7 @@
       /* Desktop/tablet: Sadhguru image as fixed background */
       background-image:
         linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.85)),
-        url("https://i.imgur.com/3e1tNpL.jpeg");
+        url("https://i.imgur.com/Zk5G9BD.jpeg");
       background-position:center center;
       background-size:cover;
       background-repeat:no-repeat;
@@ -314,22 +314,23 @@
       }
     }
 
+    /* Mobile: lighter bg + more side padding */
     @media (max-width:640px){
-      /* 1) Simpler background (no heavy image behind) */
+      /* 1) Simpler, lighter background */
       body{
         align-items:flex-start;
         background-image:linear-gradient(to bottom,#f7f2e9,#e5dccb);
         background-attachment:scroll;
       }
-    
+
       /* 2) More space around card so background frames it */
       .overlay{
         padding:20px;
       }
-    
-      /* 3) Hero image INSIDE the card + glassmorphism */
+
+      /* 3) Hero image INSIDE the card + glassmorphism + side padding */
       .card{
-        padding:0 0 14px;
+        padding:0 14px 14px; /* 🔹 side padding added */
         border-radius:18px;
         overflow:hidden;
         background:rgba(255,255,255,0.78);
@@ -337,20 +338,21 @@
         max-width:380px;
         margin:24px auto;
       }
-    
+
       .hero-photo{
         display:block;
         height:220px;
-        background-image:url("https://i.imgur.com/3e1tNpL.jpeg");
+        background-image:url("https://i.imgur.com/PUlWX3Q.jpeg");
         background-position:center;
         background-size:cover;
+        margin:0 -14px 0; /* 🔹 full-bleed image inside padded card */
       }
-    
+
       .hero{
-        padding:16px 14px 0;
+        padding:16px 0 0;
         margin-bottom:8px;
       }
-    
+
       h1{
         font-size:1.7rem;
       }
@@ -364,7 +366,6 @@
         padding-right:56px;
       }
     }
-
   </style>
 </head>
 <body>
@@ -398,8 +399,8 @@
           </div>
         </div>
 
-        <!-- ✅ Added back so JS can safely update text -->
         <p id="eventStatus" class="count-note">
+          Counting down in calendar months, days, hours, minutes and seconds until the tentative program date.
         </p>
       </section>
 
