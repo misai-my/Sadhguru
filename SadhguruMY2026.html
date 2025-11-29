@@ -544,7 +544,7 @@
         const timePart   = `${pad(eventDiff.hours)}:${pad(eventDiff.minutes)}:${pad(eventDiff.seconds)}`;
         eventCombinedEl.textContent = `${monthsPart} · ${daysPart} · ${timePart}`;
         if (eventStatusEl){
-          eventStatusEl.textContent  = "Counting down in calendar months, days, hours, minutes and seconds until the tentative program date.";
+          eventStatusEl.textContent  = "";
         }
       }
 
