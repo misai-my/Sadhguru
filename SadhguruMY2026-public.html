@@ -18,8 +18,8 @@
   <meta name="twitter:description" content="To stay updated on any changes and be informed when registrations open, kindly register your interest here." />
   <meta name="twitter:image" content="https://i.imgur.com/2EgTWuw.jpeg" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet"/>
+  <!-- Fonts (added Roboto for CTA) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet"/>
 
   <style>
     :root {
@@ -311,6 +311,46 @@
       color:var(--teal);
     }
 
+    /* CTA button (light baby blue + Roboto, bold) */
+    .cta-wrap{
+      margin:16px 0 4px;
+      text-align:center;
+    }
+    .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 32px;
+      border-radius:999px;
+      border:none;
+      background:linear-gradient(135deg,#d7ecff,#a9d8ff); /* light baby blue */
+      color:#05345a; /* deep blue for good contrast */
+      font-family:'Roboto',system-ui,-apple-system,'Segoe UI',sans-serif;
+      font-weight:700;
+      font-size:1.05rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow:0 14px 30px rgba(0,0,0,0.22);
+      transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
+      min-width:280px;
+    }
+    .cta-btn:hover{
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:0 18px 36px rgba(0,0,0,0.27);
+      background:linear-gradient(135deg,#e2f2ff,#b4ddff);
+    }
+    .cta-btn:active{
+      transform:translateY(0) scale(0.99);
+      box-shadow:0 10px 22px rgba(0,0,0,0.24);
+    }
+    .cta-btn span.icon{
+      font-size:1.2rem;
+      line-height:1;
+    }
+
     .disclaimer{
       margin-top:8px;
       font-size:.74rem;
@@ -390,6 +430,12 @@
       .quote-author{
         padding-right:56px;
       }
+
+      /* Full-width CTA on mobile */
+      .cta-btn{
+        width:100%;
+        max-width:none;
+      }
     }
   </style>
 </head>
@@ -416,9 +462,13 @@
           To stay updated on any changes and be informed when registrations open,
           kindly register your interest here:
         </p>
-        <p>
-          <a href="https://iyg.to/eoe-eoi/555367/RY4X99" target="_blank" rel="noopener">
-            https://iyg.to/eoe-eoi/555367/RY4X99
+        <p class="cta-wrap">
+          <a href="https://iyg.to/eoe-eoi/555367/RY4X99"
+             target="_blank"
+             rel="noopener"
+             class="cta-btn">
+            <span class="icon">✶</span>
+            <span>Register Your Interest</span>
           </a>
         </p>
       </section>
