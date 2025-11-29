@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet"/>
 
   <style>
     :root {
@@ -160,6 +160,98 @@
       background:var(--teal);
     }
 
+    /* Quotes carousel */
+    .quotes{
+      margin-top:28px;
+      padding-top:20px;
+      border-top:1px dashed var(--line);
+    }
+
+    .quotes-header{
+      font-size:.9rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    .quote-card{
+      position:relative;
+      padding:18px 18px 16px;
+      border-radius:var(--radius-lg);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at top,rgba(255,255,255,0.9),rgba(252,245,231,0.95));
+    }
+
+    .quote-mark{
+      font-family:"Cinzel",serif;
+      font-size:2.4rem;
+      color:rgba(0,0,0,0.12);
+      line-height:1;
+      margin-bottom:2px;
+    }
+
+    .quote-text{
+      font-size:1rem;
+      line-height:1.6;
+      color:var(--ink);
+      margin-bottom:10px;
+    }
+
+    .quote-author{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      font-size:.9rem;
+      color:#444;
+      gap:4px;
+    }
+
+    .quote-author span.author-name{
+      font-family:"Dancing Script",cursive;
+      font-size:1.25rem;
+      color:#333;
+    }
+
+    .quote-nav{
+      position:absolute;
+      inset-block:auto 10px;
+      right:12px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .nav-btn{
+      border:none;
+      background:rgba(0,0,0,0.04);
+      color:var(--muted);
+      width:26px;
+      height:26px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      font-size:1.15rem;
+      line-height:1;
+      padding:0;
+      transition:background .2s,color .2s,transform .15s,box-shadow .15s;
+    }
+
+    .nav-btn:hover{
+      background:rgba(0,0,0,0.08);
+      color:var(--accent);
+      transform:translateY(-1px);
+      box-shadow:0 2px 6px rgba(0,0,0,0.12);
+    }
+
+    .nav-btn:focus-visible{
+      outline:2px solid var(--teal);
+      outline-offset:2px;
+    }
+
     .reg{
       margin-top:26px;
       padding-top:18px;
@@ -210,6 +302,11 @@
       }
       h1{
         text-align:left;
+      }
+      .quote-nav{
+        position:static;
+        justify-content:flex-end;
+        margin-top:4px;
       }
     }
 
@@ -303,6 +400,23 @@
         </p>
       </section>
 
+      <!-- Quotes carousel -->
+      <section class="quotes">
+        <div class="quotes-header">Wisdom from Sadhguru</div>
+        <div class="quote-card">
+          <div class="quote-mark">“</div>
+          <p id="quoteText" class="quote-text"></p>
+          <div class="quote-author">
+            <span>—</span>
+            <span class="author-name">Sadhguru</span>
+          </div>
+          <div class="quote-nav">
+            <button class="nav-btn" id="prevQuote" aria-label="Previous quote">‹</button>
+            <button class="nav-btn" id="nextQuote" aria-label="Next quote">›</button>
+          </div>
+        </div>
+      </section>
+
       <!-- Registration & disclaimer -->
       <section class="reg">
         <p>
@@ -320,7 +434,7 @@
           and related volunteer information for Sadhguru in Malaysia 2026.
         </p>
         <p class="footer-note">
-          For the best experience, keep this page open during events &mdash; the timers update in real time.
+          For the best experience, keep this page open during events &mdash; the timers and quotes update in real time.
         </p>
       </section>
     </main>
@@ -411,6 +525,77 @@
 
     updateTimers();
     setInterval(updateTimers, 1000);
+
+    // --- Quotes carousel ---
+    const quotes = [
+      // From photos
+      `Time is slipping away for all of us at the same pace. You cannot manage time, but you can manage your Energy.`,
+      `The most beautiful things in your life – love, creativity, music, dance and laughter – happen only when you keep yourself aside. May you know the Joy and Ecstasy of being in a state of Abandon.`,
+      `Anything you respond to willingly becomes yours. If you consciously respond to everything you come in touch with, the entire universe becomes Yours.`,
+      `What you do is not the point. It is the level of Involvement Within You that Transforms you.`,
+      // Additional quotes
+      `The first step you need to take is to acknowledge that, whatever happens, your Life is your Responsibility.`,
+      `If you are truly Conscious, there is only one place you can be: NOW.`,
+      `Who and what you are is an expression of the Divine.`,
+      `Your ability to love is unlimited. When you Become Love, you can hold the whole universe in your love.`
+    ];
+
+    function shuffle(arr){
+      for(let i = arr.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    const quoteTextEl = document.getElementById("quoteText");
+    const prevBtn = document.getElementById("prevQuote");
+    const nextBtn = document.getElementById("nextQuote");
+
+    let quoteIndex = 0;
+    const QUOTE_INTERVAL_MS = 5000;
+    let quoteTimerId = null;
+
+    const shuffledQuotes = shuffle([...quotes]);
+
+    function renderQuote(){
+      quoteTextEl.textContent = shuffledQuotes[quoteIndex];
+    }
+
+    function nextQuote(){
+      quoteIndex = (quoteIndex + 1) % shuffledQuotes.length;
+      renderQuote();
+    }
+
+    function prevQuote(){
+      quoteIndex = (quoteIndex - 1 + shuffledQuotes.length) % shuffledQuotes.length;
+      renderQuote();
+    }
+
+    function startQuoteTimer(){
+      quoteTimerId = setInterval(nextQuote, QUOTE_INTERVAL_MS);
+    }
+
+    function resetQuoteTimer(){
+      if(quoteTimerId !== null){
+        clearInterval(quoteTimerId);
+      }
+      startQuoteTimer();
+    }
+
+    prevBtn.addEventListener("click", () => {
+      prevQuote();
+      resetQuoteTimer();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      nextQuote();
+      resetQuoteTimer();
+    });
+
+    // Initial render & start auto-rotation
+    renderQuote();
+    startQuoteTimer();
   </script>
 </body>
 </html>
