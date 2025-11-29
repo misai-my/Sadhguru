@@ -58,8 +58,7 @@
 
     .overlay{
       width:100%;
-      /* full width on desktop */
-      max-width:none;
+      max-width:none; /* full width on desktop */
       padding:18px;
       background:radial-gradient(circle at top,rgba(255,255,255,0.10),rgba(255,255,255,0.06));
       backdrop-filter:blur(2px);
@@ -67,8 +66,7 @@
 
     .card{
       width:100%;
-      /* full width on desktop; mobile overrides later */
-      max-width:none;
+      max-width:none; /* full width on desktop; mobile overrides later */
       margin:0 auto;
       padding:20px 20px 18px;
       background:var(--card);
@@ -77,14 +75,14 @@
       box-shadow:0 22px 55px rgba(0,0,0,0.35);
     }
 
-    /* Hero image block (now visible on desktop + mobile) */
+    /* Hero image block (visible on desktop + mobile) */
     .hero-photo{
       margin:0 0 12px;
     }
 
     .hero-img{
       width:100%;
-      height:auto;          /* shows full image without cropping */
+      height:auto;
       display:block;
       border-radius:18px;
     }
@@ -236,7 +234,7 @@
       margin-bottom:4px;
     }
 
-    .quote-author}{
+    .quote-author{
       display:flex;
       justify-content:flex-start;
       align-items:center;
@@ -372,6 +370,14 @@
       line-height:1.4;
     }
 
+    /* Desktop-only: shrink hero image height */
+    @media (min-width:900px){
+      .hero-img{
+        max-height:420px;
+        object-fit:cover;
+      }
+    }
+
     /* Tablet */
     @media (max-width:900px){
       .overlay{
@@ -413,6 +419,7 @@
 
       .hero-img{
         border-radius:14px;
+        max-height:none; /* full image on mobile */
       }
 
       .hero{
@@ -474,7 +481,8 @@
           </a>
         </p>
         <p class="subtitle">
-          A gentle reminder on your screen that every moment is moving us closer to Sadhguru’s visit to Malaysia. May this countdown be a nudge to keep your inner work alive.
+          A gentle reminder on your screen that every moment is moving us closer to Sadhguru’s visit to Malaysia.
+          May this countdown be a nudge to keep your inner work alive.
         </p>
       </section>
 
