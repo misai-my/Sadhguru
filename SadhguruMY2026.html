@@ -5,19 +5,19 @@
   <title>Sadhguru in Malaysia 2026 — Countdown</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Optional: Spiritual-feel fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
 
   <style>
     :root {
-      --bg:#05060a;
-      --ink:#f8f6f0;
-      --muted:#d2d0c2;
-      --accent:#f6c453;
-      --accent-soft:rgba(246,196,83,0.4);
-      --teal:#50d0c5;
-      --card:#05060aee;
-      --line:rgba(255,255,255,0.18);
+      --bg:#f4f3ee;
+      --ink:#1c1b1a;
+      --muted:#585858;
+      --accent:#c87c10;
+      --accent-soft:rgba(200,124,16,0.2);
+      --teal:#2ea7a0;
+      --card:#ffffffee;
+      --line:rgba(0,0,0,0.08);
       --radius-lg:22px;
       --radius-sm:12px;
     }
@@ -29,16 +29,13 @@
       font-family:"Nunito Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       color:var(--ink);
       background:
-        radial-gradient(circle at 10% 0%,rgba(255,255,255,0.08),transparent 55%),
-        radial-gradient(circle at 90% 100%,rgba(19,173,179,0.35),transparent 55%),
-        linear-gradient(145deg,rgba(0,0,0,0.92),rgba(0,0,0,0.96)),
-        url("IMG_0697.JPG") center/cover fixed no-repeat;
+        linear-gradient(135deg,rgba(255,255,255,0.82),rgba(249,245,236,0.88)),
+        url("https://i.imgur.com/PUlWX3Q.jpeg") center/cover fixed no-repeat;
     }
 
     .overlay{
       min-height:100vh;
-      backdrop-filter:blur(5px);
-      background:radial-gradient(circle at top,rgba(0,0,0,0.45),rgba(0,0,0,0.9));
+      background:radial-gradient(circle at top,rgba(255,255,255,0.90),rgba(255,255,255,0.85),rgba(240,240,240,0.90));
       display:flex;
       align-items:center;
       justify-content:center;
@@ -46,13 +43,13 @@
     }
 
     .card{
-      max-width:960px;
+      max-width:980px;
       width:100%;
-      padding:32px 28px 28px;
+      padding:32px 30px 26px;
       background:var(--card);
       border-radius:var(--radius-lg);
       border:1px solid var(--accent-soft);
-      box-shadow:0 30px 70px rgba(0,0,0,0.85);
+      box-shadow:0 30px 70px rgba(0,0,0,0.25);
     }
 
     .kicker{
@@ -65,7 +62,7 @@
 
     h1{
       font-family:"Cinzel",serif;
-      font-size:clamp(1.9rem,3.4vw,2.5rem);
+      font-size:clamp(1.9rem,3.4vw,2.6rem);
       letter-spacing:.06em;
       text-transform:uppercase;
       margin-bottom:10px;
@@ -79,8 +76,8 @@
     }
 
     .primary-section{
-      margin-top:26px;
-      padding-top:20px;
+      margin-top:24px;
+      padding-top:18px;
       border-top:1px solid var(--line);
     }
 
@@ -104,17 +101,16 @@
 
     .count-grid{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:16px;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:14px;
     }
 
     .count-box{
-      padding:14px 10px 18px;
+      padding:12px 8px 16px;
       border-radius:var(--radius-sm);
       border:1px solid var(--line);
       background:
-        radial-gradient(circle at top,rgba(246,196,83,0.12),transparent 60%),
-        rgba(8,10,20,0.9);
+        linear-gradient(145deg,rgba(255,255,255,0.92),rgba(253,243,225,0.95));
       text-align:center;
     }
 
@@ -128,8 +124,8 @@
 
     .count-number{
       font-family:"Cinzel",serif;
-      font-size:clamp(2.2rem,4vw,3.1rem);
-      line-height:1;
+      font-size:clamp(1.7rem,2.4vw,2.1rem);
+      line-height:1.05;
     }
 
     .count-note{
@@ -151,7 +147,7 @@
       font-size:.78rem;
       padding:6px 10px;
       border-radius:999px;
-      background:rgba(0,0,0,0.6);
+      background:rgba(255,255,255,0.9);
       border:1px solid var(--accent-soft);
       color:var(--accent);
       margin-bottom:8px;
@@ -179,7 +175,7 @@
     .reg a{
       color:var(--accent);
       text-decoration:none;
-      border-bottom:1px solid rgba(246,196,83,0.55);
+      border-bottom:1px solid rgba(200,124,16,0.4);
     }
     .reg a:hover{
       border-bottom-color:var(--teal);
@@ -199,15 +195,27 @@
       color:var(--muted);
     }
 
-    @media (max-width:720px){
+    @media (max-width:900px){
+      .count-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:640px){
       .card{
         padding:22px 18px 20px;
       }
       .count-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,minmax(0,1fr));
       }
       h1{
         text-align:left;
+      }
+    }
+
+    @media (max-width:460px){
+      .count-grid{
+        grid-template-columns:1fr 1fr;
       }
     }
   </style>
@@ -218,8 +226,8 @@
       <div class="kicker">Sadhguru in Malaysia 2026</div>
       <h1>Sadhguru in Malaysia</h1>
       <p class="subtitle">
-        A space for inner transformation. Stay tuned as we journey towards Sadhguru’s visit to Malaysia in 2026,
-        and honour the volunteers who began preparing long before the lights come on.
+        A gentle reminder on your screen that every moment is moving us closer to Sadhguru’s visit to Malaysia.
+        May this countdown be a nudge to keep your inner work alive.
       </p>
 
       <!-- Main countdown -->
@@ -243,9 +251,17 @@
             <div class="count-label">Hours</div>
             <div id="eventHours" class="count-number">0</div>
           </div>
+          <div class="count-box">
+            <div class="count-label">Minutes</div>
+            <div id="eventMinutes" class="count-number">0</div>
+          </div>
+          <div class="count-box">
+            <div class="count-label">Seconds</div>
+            <div id="eventSeconds" class="count-number">0</div>
+          </div>
         </div>
         <p id="eventStatus" class="count-note">
-          Counting down in calendar months, days, and hours until the tentative program date.
+          Counting down in calendar months, days, hours, minutes and seconds until the tentative program date.
         </p>
       </section>
 
@@ -273,9 +289,17 @@
             <div class="count-label">Hours Since</div>
             <div id="meetHours" class="count-number">0</div>
           </div>
+          <div class="count-box">
+            <div class="count-label">Minutes Since</div>
+            <div id="meetMinutes" class="count-number">0</div>
+          </div>
+          <div class="count-box">
+            <div class="count-label">Seconds Since</div>
+            <div id="meetSeconds" class="count-number">0</div>
+          </div>
         </div>
         <p class="count-note">
-          This is how long the volunteers have already been walking this journey together.
+          Every second since that evening is part of the offering. This is how long the volunteers have already been walking this journey together.
         </p>
       </section>
 
@@ -305,7 +329,7 @@
   <script>
     // --- Dates (local time) ---
     // Sadhguru in Malaysia (tentative)
-    const EVENT_DATE = new Date(2026, 9, 26, 0, 0, 0); // 26 October 2026, 00:00
+    const EVENT_DATE = new Date(2026, 9, 26, 0, 0, 0); // 26 October 2026
     // First volunteer meeting: 23 November 2025, 8:30 PM
     const MEETING_DATE = new Date(2025, 10, 23, 20, 30, 0);
 
@@ -331,7 +355,7 @@
       if (hours < 0){ hours += 24; days--; }
 
       if (days < 0){
-        const prevMonth = new Date(e.getFullYear(), e.getMonth(), 0); // last day of prev month
+        const prevMonth = new Date(e.getFullYear(), e.getMonth(), 0); // last day of previous month
         days += prevMonth.getDate();
         months--;
       }
@@ -344,33 +368,45 @@
       return { future, totalMonths, days, hours, minutes, seconds };
     }
 
+    function pad(num){
+      return num.toString().padStart(2,"0");
+    }
+
     function updateTimers(){
       const now = new Date();
 
       // Countdown to event
       const eventDiff = diffInCalendarUnits(now, EVENT_DATE);
-      const eventMonthsEl = document.getElementById("eventMonths");
-      const eventDaysEl   = document.getElementById("eventDays");
-      const eventHoursEl  = document.getElementById("eventHours");
-      const eventStatusEl = document.getElementById("eventStatus");
+      const eventMonthsEl  = document.getElementById("eventMonths");
+      const eventDaysEl    = document.getElementById("eventDays");
+      const eventHoursEl   = document.getElementById("eventHours");
+      const eventMinutesEl = document.getElementById("eventMinutes");
+      const eventSecondsEl = document.getElementById("eventSeconds");
+      const eventStatusEl  = document.getElementById("eventStatus");
 
       if (!eventDiff.future){
-        eventMonthsEl.textContent = "0";
-        eventDaysEl.textContent   = "0";
-        eventHoursEl.textContent  = "0";
-        eventStatusEl.textContent = "Sadhguru is in Malaysia — may this be a time of profound inner transformation.";
+        eventMonthsEl.textContent  = "0";
+        eventDaysEl.textContent    = "0";
+        eventHoursEl.textContent   = "0";
+        eventMinutesEl.textContent = "00";
+        eventSecondsEl.textContent = "00";
+        eventStatusEl.textContent  = "Sadhguru is in Malaysia — may this be a time of profound inner transformation.";
       } else {
-        eventMonthsEl.textContent = eventDiff.totalMonths;
-        eventDaysEl.textContent   = eventDiff.days;
-        eventHoursEl.textContent  = eventDiff.hours;
-        eventStatusEl.textContent = "Counting down in calendar months, days, and hours until the tentative program date.";
+        eventMonthsEl.textContent  = eventDiff.totalMonths;
+        eventDaysEl.textContent    = eventDiff.days;
+        eventHoursEl.textContent   = eventDiff.hours;
+        eventMinutesEl.textContent = pad(eventDiff.minutes);
+        eventSecondsEl.textContent = pad(eventDiff.seconds);
+        eventStatusEl.textContent  = "Counting down in calendar months, days, hours, minutes and seconds until the tentative program date.";
       }
 
       // Time elapsed since first volunteer meeting
       const meetDiff = diffInCalendarUnits(MEETING_DATE, now);
-      document.getElementById("meetMonths").textContent = meetDiff.totalMonths;
-      document.getElementById("meetDays").textContent   = meetDiff.days;
-      document.getElementById("meetHours").textContent  = meetDiff.hours;
+      document.getElementById("meetMonths").textContent  = meetDiff.totalMonths;
+      document.getElementById("meetDays").textContent    = meetDiff.days;
+      document.getElementById("meetHours").textContent   = meetDiff.hours;
+      document.getElementById("meetMinutes").textContent = pad(meetDiff.minutes);
+      document.getElementById("meetSeconds").textContent = pad(meetDiff.seconds);
     }
 
     updateTimers();
