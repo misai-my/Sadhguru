@@ -314,20 +314,19 @@
       }
     }
 
-    /* Mobile: apply ALL three strategies */
     @media (max-width:640px){
       /* 1) Simpler background (no heavy image behind) */
       body{
         align-items:flex-start;
-        background-image:linear-gradient(to bottom,#000000,#161616);
+        background-image:linear-gradient(to bottom,#f7f2e9,#e5dccb);
         background-attachment:scroll;
       }
-
+    
       /* 2) More space around card so background frames it */
       .overlay{
         padding:20px;
       }
-
+    
       /* 3) Hero image INSIDE the card + glassmorphism */
       .card{
         padding:0 0 14px;
@@ -338,20 +337,20 @@
         max-width:380px;
         margin:24px auto;
       }
-
+    
       .hero-photo{
         display:block;
         height:220px;
-        background-image:url("https://i.imgur.com/3e1tNpL.jpeg");
+        background-image:url("https://i.imgur.com/PUlWX3Q.jpeg");
         background-position:center;
         background-size:cover;
       }
-
+    
       .hero{
         padding:16px 14px 0;
         margin-bottom:8px;
       }
-
+    
       h1{
         font-size:1.7rem;
       }
@@ -365,6 +364,7 @@
         padding-right:56px;
       }
     }
+
   </style>
 </head>
 <body>
