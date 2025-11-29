@@ -10,13 +10,13 @@
 
   <style>
     :root {
-      --bg:#f4f3ee;
+      --bg:#f6f3ea;
       --ink:#1c1b1a;
       --muted:#585858;
       --accent:#c87c10;
       --accent-soft:rgba(200,124,16,0.25);
       --teal:#2ea7a0;
-      --card:rgba(255,255,255,0.86);
+      --card:rgba(255,255,255,0.9);
       --line:rgba(0,0,0,0.08);
       --radius-lg:22px;
       --radius-sm:12px;
@@ -28,35 +28,54 @@
       min-height:100vh;
       font-family:"Nunito Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       color:var(--ink);
-      background-color:var(--bg);
-      background-image:url("https://i.imgur.com/PUlWX3Q.jpeg");
-      background-position:center;
-      background-size:cover;
-      background-repeat:no-repeat;
-      background-attachment:fixed;
-    }
-
-    .overlay{
-      min-height:100vh;
+      background:
+        radial-gradient(circle at top,#fdf8ec 0,#f3efe6 45%,#f0ede6 100%);
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:24px;
-      /* softer, more transparent veil so image is visible */
-      background:
-        radial-gradient(circle at top,rgba(255,255,255,0.80),rgba(255,255,255,0.70)),
-        linear-gradient(to bottom,rgba(255,255,255,0.78),rgba(255,255,255,0.68));
-      backdrop-filter:blur(2px);
+    }
+
+    .overlay{
+      width:100%;
+      max-width:1120px;
+      padding:18px;
     }
 
     .card{
       max-width:980px;
+      margin:0 auto;
       width:100%;
-      padding:28px 26px 22px;
+      padding:20px 20px 18px;
       background:var(--card);
       border-radius:var(--radius-lg);
       border:1px solid var(--accent-soft);
-      box-shadow:0 22px 55px rgba(0,0,0,0.22);
+      box-shadow:0 22px 55px rgba(0,0,0,0.18);
+    }
+
+    /* Hero layout with image */
+    .hero{
+      display:flex;
+      gap:18px;
+      align-items:stretch;
+      margin-bottom:8px;
+      flex-wrap:wrap;
+    }
+
+    .hero-image{
+      flex:0 0 270px;
+      border-radius:18px;
+      background-image:url("https://i.imgur.com/PUlWX3Q.jpeg");
+      background-size:cover;
+      background-position:center;
+      min-height:230px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .hero-text{
+      flex:1 1 260px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
     .kicker{
@@ -76,29 +95,29 @@
     }
 
     .subtitle{
-      font-size:.98rem;
+      font-size:.95rem;
       color:var(--muted);
       max-width:40rem;
       line-height:1.5;
     }
 
     .primary-section{
-      margin-top:22px;
-      padding-top:16px;
+      margin-top:14px;
+      padding-top:14px;
       border-top:1px solid var(--line);
     }
 
     .section-title{
-      font-size:.86rem;
+      font-size:.83rem;
       text-transform:uppercase;
       letter-spacing:.18em;
       color:var(--muted);
-      margin-bottom:8px;
+      margin-bottom:6px;
     }
 
     .date-line{
       font-size:.9rem;
-      margin-bottom:16px;
+      margin-bottom:10px;
       color:var(--muted);
     }
     .date-line span{
@@ -106,44 +125,40 @@
       font-weight:600;
     }
 
-    .count-grid{
-      display:grid;
-      grid-template-columns:repeat(5,minmax(0,1fr));
-      gap:12px;
-    }
-
-    .count-box{
-      padding:10px 8px 14px;
+    /* Single-line countdown blocks */
+    .count-single{
+      padding:10px 12px;
       border-radius:var(--radius-sm);
       border:1px solid var(--line);
       background:
-        linear-gradient(145deg,rgba(255,255,255,0.95),rgba(253,243,225,0.9));
-      text-align:center;
+        linear-gradient(145deg,rgba(255,255,255,0.96),rgba(253,243,225,0.92));
+      display:flex;
+      flex-direction:column;
+      gap:3px;
     }
 
-    .count-label{
-      font-size:.7rem;
+    .count-label-main{
+      font-size:.78rem;
       text-transform:uppercase;
       letter-spacing:.16em;
       color:var(--muted);
-      margin-bottom:4px;
     }
 
-    .count-number{
+    .count-combined{
       font-family:"Cinzel",serif;
-      font-size:clamp(1.6rem,2.3vw,2.1rem);
-      line-height:1.05;
+      font-size:1.15rem;
+      line-height:1.4;
     }
 
     .count-note{
-      margin-top:8px;
+      margin-top:6px;
       font-size:.75rem;
       color:var(--muted);
     }
 
     .secondary{
-      margin-top:24px;
-      padding-top:18px;
+      margin-top:18px;
+      padding-top:14px;
       border-top:1px dashed var(--line);
     }
 
@@ -154,7 +169,7 @@
       font-size:.78rem;
       padding:5px 9px;
       border-radius:999px;
-      background:rgba(255,255,255,0.92);
+      background:rgba(255,255,255,0.96);
       border:1px solid var(--accent-soft);
       color:var(--accent);
       margin-bottom:6px;
@@ -169,13 +184,13 @@
 
     /* Quotes carousel */
     .quotes{
-      margin-top:24px;
-      padding-top:18px;
+      margin-top:20px;
+      padding-top:14px;
       border-top:1px dashed var(--line);
     }
 
     .quotes-header{
-      font-size:.88rem;
+      font-size:.86rem;
       text-transform:uppercase;
       letter-spacing:.18em;
       color:var(--muted);
@@ -184,16 +199,16 @@
 
     .quote-card{
       position:relative;
-      padding:16px 16px 12px;
+      padding:14px 14px 12px;
       border-radius:var(--radius-lg);
       border:1px solid var(--line);
       background:
-        radial-gradient(circle at top,rgba(255,255,255,0.96),rgba(252,245,231,0.94));
+        radial-gradient(circle at top,rgba(255,255,255,0.97),rgba(252,245,231,0.94));
     }
 
     .quote-mark{
       font-family:"Cinzel",serif;
-      font-size:2.3rem;
+      font-size:2.2rem;
       color:rgba(0,0,0,0.14);
       line-height:1;
       margin-bottom:2px;
@@ -208,12 +223,12 @@
 
     .quote-author{
       display:flex;
-      justify-content:flex-start;   /* keep to the left */
+      justify-content:flex-start;
       align-items:center;
       font-size:.9rem;
       color:#444;
       gap:4px;
-      padding-right:72px;           /* space so it doesn't touch arrows */
+      padding-right:72px;
       margin-top:6px;
     }
 
@@ -262,8 +277,8 @@
     }
 
     .reg{
-      margin-top:24px;
-      padding-top:16px;
+      margin-top:20px;
+      padding-top:14px;
       border-top:1px solid var(--line);
       font-size:.86rem;
     }
@@ -299,41 +314,35 @@
     /* Tablet */
     @media (max-width:900px){
       .card{
-        padding:24px 20px 20px;
-      }
-      .count-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
+        padding:18px 16px 16px;
       }
     }
 
     /* Mobile */
-    @media (max-width:640px){
-      body{
-        background-attachment:scroll; /* smoother on mobile */
-        background-position:center top;
+    @media (max-width:720px){
+      .hero{
+        flex-direction:column;
       }
-      .overlay{
-        padding:14px;
-      }
-      .card{
-        padding:20px 14px 16px;
-        border-radius:18px;
-      }
-      h1{
-        font-size:1.8rem;
+      .hero-image{
+        flex:none;
+        width:100%;
+        min-height:260px;
       }
       .subtitle{
         font-size:.9rem;
       }
-      .count-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:10px;
+    }
+
+    @media (max-width:480px){
+      .overlay{
+        padding:10px;
       }
-      .count-number{
-        font-size:1.55rem;
+      .card{
+        padding:16px 12px 14px;
+        border-radius:18px;
       }
-      .quote-card{
-        padding:14px 12px 12px;
+      h1{
+        font-size:1.7rem;
       }
       .quote-text{
         font-size:.95rem;
@@ -342,31 +351,23 @@
         padding-right:56px;
       }
     }
-
-    /* Very small screens */
-    @media (max-width:430px){
-      .count-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-      .subtitle{
-        max-width:none;
-      }
-      .quote-nav{
-        right:8px;
-        bottom:8px;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="overlay">
     <main class="card">
-      <div class="kicker">Sadhguru in Malaysia 2026</div>
-      <h1>Sadhguru in Malaysia</h1>
-      <p class="subtitle">
-        A gentle reminder on your screen that every moment is moving us closer to Sadhguru’s visit to Malaysia.
-        May this countdown be a nudge to keep your inner work alive.
-      </p>
+      <!-- Hero with image -->
+      <div class="hero">
+        <div class="hero-image" aria-hidden="true"></div>
+        <div class="hero-text">
+          <div class="kicker">Sadhguru in Malaysia 2026</div>
+          <h1>Sadhguru in Malaysia</h1>
+          <p class="subtitle">
+            A gentle reminder on your screen that every moment is moving us closer to Sadhguru’s visit to Malaysia.
+            May this countdown be a nudge to keep your inner work alive.
+          </p>
+        </div>
+      </div>
 
       <!-- Main countdown -->
       <section class="primary-section">
@@ -376,26 +377,10 @@
           <span>26 October 2026 &middot; Malaysia</span>
         </p>
 
-        <div class="count-grid">
-          <div class="count-box">
-            <div class="count-label">Months</div>
-            <div id="eventMonths" class="count-number">0</div>
-          </div>
-          <div class="count-box">
-            <div class="count-label">Days</div>
-            <div id="eventDays" class="count-number">0</div>
-          </div>
-          <div class="count-box">
-            <div class="count-label">Hours</div>
-            <div id="eventHours" class="count-number">0</div>
-          </div>
-          <div class="count-box">
-            <div class="count-label">Minutes</div>
-            <div id="eventMinutes" class="count-number">0</div>
-          </div>
-          <div class="count-box">
-            <div class="count-label">Seconds</div>
-            <div id="eventSeconds" class="count-number">0</div>
+        <div class="count-single">
+          <div class="count-label-main">Time Remaining</div>
+          <div id="eventCombined" class="count-combined">
+            0 months · 0 days · 00:00:00
           </div>
         </div>
         <p id="eventStatus" class="count-note">
@@ -414,26 +399,10 @@
           <span>23 November 2025 &middot; 8:30 PM</span>
         </p>
 
-        <div class="count-grid">
-          <div class="count-box">
-            <div class="count-label">Months Since</div>
-            <div id="meetMonths" class="count-number">0</div>
-          </div>
-          <div class="count-box">
-            <div class="count-label">Days Since</div>
-            <div id="meetDays" class="count-number">0</div>
-          </div>
-          <div class="count-box">
-            <div class="count-label">Hours Since</div>
-            <div id="meetHours" class="count-number">0</div>
-          </div>
-          <div class="count-box">
-            <div class="count-label">Minutes Since</div>
-            <div id="meetMinutes" class="count-number">0</div>
-          </div>
-          <div class="count-box">
-            <div class="count-label">Seconds Since</div>
-            <div id="meetSeconds" class="count-number">0</div>
+        <div class="count-single">
+          <div class="count-label-main">Time Since We First Met</div>
+          <div id="meetCombined" class="count-combined">
+            0 months · 0 days · 00:00:00
           </div>
         </div>
         <p class="count-note">
@@ -524,41 +493,36 @@
       return num.toString().padStart(2,"0");
     }
 
+    function plural(value, word){
+      return value + " " + word + (value === 1 ? "" : "s");
+    }
+
     function updateTimers(){
       const now = new Date();
 
       // Countdown to event
       const eventDiff = diffInCalendarUnits(now, EVENT_DATE);
-      const eventMonthsEl  = document.getElementById("eventMonths");
-      const eventDaysEl    = document.getElementById("eventDays");
-      const eventHoursEl   = document.getElementById("eventHours");
-      const eventMinutesEl = document.getElementById("eventMinutes");
-      const eventSecondsEl = document.getElementById("eventSeconds");
+      const eventCombinedEl = document.getElementById("eventCombined");
       const eventStatusEl  = document.getElementById("eventStatus");
 
       if (!eventDiff.future){
-        eventMonthsEl.textContent  = "0";
-        eventDaysEl.textContent    = "0";
-        eventHoursEl.textContent   = "0";
-        eventMinutesEl.textContent = "00";
-        eventSecondsEl.textContent = "00";
+        eventCombinedEl.textContent  = "0 months · 0 days · 00:00:00";
         eventStatusEl.textContent  = "Sadhguru is in Malaysia — may this be a time of profound inner transformation.";
       } else {
-        eventMonthsEl.textContent  = eventDiff.totalMonths;
-        eventDaysEl.textContent    = eventDiff.days;
-        eventHoursEl.textContent   = eventDiff.hours;
-        eventMinutesEl.textContent = pad(eventDiff.minutes);
-        eventSecondsEl.textContent = pad(eventDiff.seconds);
+        const monthsPart = plural(eventDiff.totalMonths, "month");
+        const daysPart   = plural(eventDiff.days, "day");
+        const timePart   = `${pad(eventDiff.hours)}:${pad(eventDiff.minutes)}:${pad(eventDiff.seconds)}`;
+        eventCombinedEl.textContent = `${monthsPart} · ${daysPart} · ${timePart}`;
         eventStatusEl.textContent  = "Counting down in calendar months, days, hours, minutes and seconds until the tentative program date.";
       }
 
       // Time elapsed since first volunteer meeting
       const meetDiff = diffInCalendarUnits(MEETING_DATE, now);
-      document.getElementById("meetMonths").textContent  = meetDiff.totalMonths;
-      document.getElementById("meetDays").textContent    = meetDiff.days;
-      document.getElementById("meetHours").textContent   = meetDiff.hours;
-      document.getElementById("meetMinutes").textContent = pad(meetDiff.minutes);
-      document.getElementById("meetSeconds").textContent = pad(meetDiff.seconds);
+      const meetCombinedEl = document.getElementById("meetCombined");
+      const meetMonthsPart = plural(meetDiff.totalMonths, "month");
+      const meetDaysPart   = plural(meetDiff.days, "day");
+      const meetTimePart   = `${pad(meetDiff.hours)}:${pad(meetDiff.minutes)}:${pad(meetDiff.seconds)}`;
+      meetCombinedEl.textContent = `${meetMonthsPart} · ${meetDaysPart} · ${meetTimePart}`;
     }
 
     updateTimers();
