@@ -58,16 +58,16 @@
 
     .overlay{
       width:100%;
-      max-width:1120px;
+      max-width:none; /* full width on desktop */
       padding:18px;
       background:radial-gradient(circle at top,rgba(255,255,255,0.10),rgba(255,255,255,0.06));
       backdrop-filter:blur(2px);
     }
 
     .card{
-      max-width:980px;
-      margin:0 auto;
       width:100%;
+      max-width:none; /* full width on desktop; mobile overrides later */
+      margin:0 auto;
       padding:20px 20px 18px;
       background:var(--card);
       border-radius:var(--radius-lg);
@@ -75,14 +75,14 @@
       box-shadow:0 22px 55px rgba(0,0,0,0.35);
     }
 
-    /* Hero image block (now visible on desktop + mobile) */
+    /* Hero image block (visible on desktop + mobile) */
     .hero-photo{
       margin:0 0 12px;
     }
 
     .hero-img{
       width:100%;
-      height:auto;          /* shows full image without cropping */
+      height:auto;          /* show full image, no cropping */
       display:block;
       border-radius:18px;
     }
@@ -368,6 +368,15 @@
       color:var(--muted);
       font-style:italic;
       line-height:1.4;
+    }
+
+    /* Desktop-only: keep full width card but narrow & center the image
+       so it doesn't feel cropped horizontally */
+    @media (min-width:900px){
+      .hero-photo{
+        max-width:720px;
+        margin:0 auto 16px; /* center image inside card */
+      }
     }
 
     /* Tablet */
