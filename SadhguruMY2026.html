@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sadhguru in Malaysia 2026</title>
+  <title>Sadhguru in Malaysia 2026 — Countdown</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
@@ -14,9 +14,9 @@
       --ink:#1c1b1a;
       --muted:#585858;
       --accent:#c87c10;
-      --accent-soft:rgba(200,124,16,0.2);
+      --accent-soft:rgba(200,124,16,0.25);
       --teal:#2ea7a0;
-      --card:#ffffffee;
+      --card:rgba(255,255,255,0.86);
       --line:rgba(0,0,0,0.08);
       --radius-lg:22px;
       --radius-sm:12px;
@@ -28,28 +28,35 @@
       min-height:100vh;
       font-family:"Nunito Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       color:var(--ink);
-      background:
-        linear-gradient(135deg,rgba(255,255,255,0.82),rgba(249,245,236,0.88)),
-        url("https://i.imgur.com/PUlWX3Q.jpeg") center/cover fixed no-repeat;
+      background-color:var(--bg);
+      background-image:url("https://i.imgur.com/PUlWX3Q.jpeg");
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
     }
 
     .overlay{
       min-height:100vh;
-      background:radial-gradient(circle at top,rgba(255,255,255,0.90),rgba(255,255,255,0.85),rgba(240,240,240,0.90));
       display:flex;
       align-items:center;
       justify-content:center;
       padding:24px;
+      /* softer, more transparent veil so image is visible */
+      background:
+        radial-gradient(circle at top,rgba(255,255,255,0.80),rgba(255,255,255,0.70)),
+        linear-gradient(to bottom,rgba(255,255,255,0.78),rgba(255,255,255,0.68));
+      backdrop-filter:blur(2px);
     }
 
     .card{
       max-width:980px;
       width:100%;
-      padding:32px 30px 26px;
+      padding:28px 26px 22px;
       background:var(--card);
       border-radius:var(--radius-lg);
       border:1px solid var(--accent-soft);
-      box-shadow:0 30px 70px rgba(0,0,0,0.25);
+      box-shadow:0 22px 55px rgba(0,0,0,0.22);
     }
 
     .kicker{
@@ -65,7 +72,7 @@
       font-size:clamp(1.9rem,3.4vw,2.6rem);
       letter-spacing:.06em;
       text-transform:uppercase;
-      margin-bottom:10px;
+      margin-bottom:8px;
     }
 
     .subtitle{
@@ -76,22 +83,22 @@
     }
 
     .primary-section{
-      margin-top:24px;
-      padding-top:18px;
+      margin-top:22px;
+      padding-top:16px;
       border-top:1px solid var(--line);
     }
 
     .section-title{
-      font-size:.88rem;
+      font-size:.86rem;
       text-transform:uppercase;
       letter-spacing:.18em;
       color:var(--muted);
-      margin-bottom:10px;
+      margin-bottom:8px;
     }
 
     .date-line{
       font-size:.9rem;
-      margin-bottom:18px;
+      margin-bottom:16px;
       color:var(--muted);
     }
     .date-line span{
@@ -102,41 +109,41 @@
     .count-grid{
       display:grid;
       grid-template-columns:repeat(5,minmax(0,1fr));
-      gap:14px;
+      gap:12px;
     }
 
     .count-box{
-      padding:12px 8px 16px;
+      padding:10px 8px 14px;
       border-radius:var(--radius-sm);
       border:1px solid var(--line);
       background:
-        linear-gradient(145deg,rgba(255,255,255,0.92),rgba(253,243,225,0.95));
+        linear-gradient(145deg,rgba(255,255,255,0.95),rgba(253,243,225,0.9));
       text-align:center;
     }
 
     .count-label{
-      font-size:.72rem;
+      font-size:.7rem;
       text-transform:uppercase;
       letter-spacing:.16em;
       color:var(--muted);
-      margin-bottom:6px;
+      margin-bottom:4px;
     }
 
     .count-number{
       font-family:"Cinzel",serif;
-      font-size:clamp(1.7rem,2.4vw,2.1rem);
+      font-size:clamp(1.6rem,2.3vw,2.1rem);
       line-height:1.05;
     }
 
     .count-note{
-      margin-top:10px;
+      margin-top:8px;
       font-size:.75rem;
       color:var(--muted);
     }
 
     .secondary{
-      margin-top:28px;
-      padding-top:20px;
+      margin-top:24px;
+      padding-top:18px;
       border-top:1px dashed var(--line);
     }
 
@@ -145,12 +152,12 @@
       align-items:center;
       gap:6px;
       font-size:.78rem;
-      padding:6px 10px;
+      padding:5px 9px;
       border-radius:999px;
-      background:rgba(255,255,255,0.9);
+      background:rgba(255,255,255,0.92);
       border:1px solid var(--accent-soft);
       color:var(--accent);
-      margin-bottom:8px;
+      margin-bottom:6px;
     }
 
     .accent-dot{
@@ -162,32 +169,32 @@
 
     /* Quotes carousel */
     .quotes{
-      margin-top:28px;
-      padding-top:20px;
+      margin-top:24px;
+      padding-top:18px;
       border-top:1px dashed var(--line);
     }
 
     .quotes-header{
-      font-size:.9rem;
+      font-size:.88rem;
       text-transform:uppercase;
       letter-spacing:.18em;
       color:var(--muted);
-      margin-bottom:10px;
+      margin-bottom:8px;
     }
 
     .quote-card{
       position:relative;
-      padding:18px 18px 16px;
+      padding:16px 16px 12px;
       border-radius:var(--radius-lg);
       border:1px solid var(--line);
       background:
-        radial-gradient(circle at top,rgba(255,255,255,0.9),rgba(252,245,231,0.95));
+        radial-gradient(circle at top,rgba(255,255,255,0.96),rgba(252,245,231,0.94));
     }
 
     .quote-mark{
       font-family:"Cinzel",serif;
-      font-size:2.4rem;
-      color:rgba(0,0,0,0.12);
+      font-size:2.3rem;
+      color:rgba(0,0,0,0.14);
       line-height:1;
       margin-bottom:2px;
     }
@@ -196,16 +203,18 @@
       font-size:1rem;
       line-height:1.6;
       color:var(--ink);
-      margin-bottom:10px;
+      margin-bottom:4px;
     }
 
     .quote-author{
       display:flex;
-      justify-content:flex-end;
+      justify-content:flex-start;   /* keep to the left */
       align-items:center;
       font-size:.9rem;
       color:#444;
       gap:4px;
+      padding-right:72px;           /* space so it doesn't touch arrows */
+      margin-top:6px;
     }
 
     .quote-author span.author-name{
@@ -216,8 +225,8 @@
 
     .quote-nav{
       position:absolute;
-      inset-block:auto 10px;
-      right:12px;
+      right:10px;
+      bottom:10px;
       display:flex;
       align-items:center;
       gap:6px;
@@ -253,14 +262,14 @@
     }
 
     .reg{
-      margin-top:26px;
-      padding-top:18px;
+      margin-top:24px;
+      padding-top:16px;
       border-top:1px solid var(--line);
       font-size:.86rem;
     }
 
     .reg p{
-      margin-bottom:10px;
+      margin-bottom:8px;
       color:var(--muted);
     }
 
@@ -275,44 +284,76 @@
     }
 
     .disclaimer{
-      margin-top:10px;
+      margin-top:8px;
       font-size:.74rem;
       color:var(--muted);
       opacity:.9;
     }
 
     .footer-note{
-      margin-top:18px;
+      margin-top:14px;
       font-size:.7rem;
       color:var(--muted);
     }
 
+    /* Tablet */
     @media (max-width:900px){
+      .card{
+        padding:24px 20px 20px;
+      }
       .count-grid{
         grid-template-columns:repeat(3,minmax(0,1fr));
       }
     }
 
+    /* Mobile */
     @media (max-width:640px){
+      body{
+        background-attachment:scroll; /* smoother on mobile */
+        background-position:center top;
+      }
+      .overlay{
+        padding:14px;
+      }
       .card{
-        padding:22px 18px 20px;
+        padding:20px 14px 16px;
+        border-radius:18px;
+      }
+      h1{
+        font-size:1.8rem;
+      }
+      .subtitle{
+        font-size:.9rem;
       }
       .count-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
       }
-      h1{
-        text-align:left;
+      .count-number{
+        font-size:1.55rem;
       }
-      .quote-nav{
-        position:static;
-        justify-content:flex-end;
-        margin-top:4px;
+      .quote-card{
+        padding:14px 12px 12px;
+      }
+      .quote-text{
+        font-size:.95rem;
+      }
+      .quote-author{
+        padding-right:56px;
       }
     }
 
-    @media (max-width:460px){
+    /* Very small screens */
+    @media (max-width:430px){
       .count-grid{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+      .subtitle{
+        max-width:none;
+      }
+      .quote-nav{
+        right:8px;
+        bottom:8px;
       }
     }
   </style>
@@ -331,7 +372,7 @@
       <section class="primary-section">
         <div class="section-title">Countdown to Sadhguru in Malaysia</div>
         <p class="date-line">
-          Main program date:
+          Main program date (tentative):
           <span>26 October 2026 &middot; Malaysia</span>
         </p>
 
@@ -358,7 +399,7 @@
           </div>
         </div>
         <p id="eventStatus" class="count-note">
-          Counting down in calendar months, days, hours, minutes and seconds until the program date.
+          Counting down in calendar months, days, hours, minutes and seconds until the tentative program date.
         </p>
       </section>
 
@@ -442,13 +483,10 @@
 
   <script>
     // --- Dates (local time) ---
-    // Sadhguru in Malaysia (tentative)
     const EVENT_DATE = new Date(2026, 9, 26, 0, 0, 0); // 26 October 2026
-    // First volunteer meeting: 23 November 2025, 8:30 PM
-    const MEETING_DATE = new Date(2025, 10, 23, 20, 30, 0);
+    const MEETING_DATE = new Date(2025, 10, 23, 20, 30, 0); // 23 Nov 2025, 8:30 PM
 
     function diffInCalendarUnits(start, end){
-      // Ensure start <= end
       let s = new Date(start.getTime());
       let e = new Date(end.getTime());
       let future = true;
@@ -469,7 +507,7 @@
       if (hours < 0){ hours += 24; days--; }
 
       if (days < 0){
-        const prevMonth = new Date(e.getFullYear(), e.getMonth(), 0); // last day of previous month
+        const prevMonth = new Date(e.getFullYear(), e.getMonth(), 0);
         days += prevMonth.getDate();
         months--;
       }
@@ -528,7 +566,7 @@
 
     // --- Quotes carousel ---
     const quotes = [
-      // From photos
+      // From images
       `Time is slipping away for all of us at the same pace. You cannot manage time, but you can manage your Energy.`,
       `The most beautiful things in your life – love, creativity, music, dance and laughter – happen only when you keep yourself aside. May you know the Joy and Ecstasy of being in a state of Abandon.`,
       `Anything you respond to willingly becomes yours. If you consciously respond to everything you come in touch with, the entire universe becomes Yours.`,
