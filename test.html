@@ -7,7 +7,7 @@
 
   <!-- Social share preview (OG + Twitter) -->
   <meta property="og:title" content="Sadhguru in Malaysia 2026" />
-  <meta property="og:description" content="To stay updated on any changes and be informed when registrations open, kindly register your interest here." />
+  <meta property="og:description" content="A gentle reminder that every moment is moving us closer to Sadhguru’s visit to Malaysia. May this countdown be a nudge to keep your inner work alive." />
   <meta property="og:image" content="https://i.imgur.com/2EgTWuw.jpeg" />
   <meta property="og:type" content="website" />
   <meta property="og:image:width" content="1200" />
@@ -15,7 +15,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sadhguru in Malaysia 2026" />
-  <meta name="twitter:description" content="To stay updated on any changes and be informed when registrations open, kindly register your interest here." />
+  <meta name="twitter:description" content="A gentle reminder that every moment is moving us closer to Sadhguru’s visit to Malaysia. May this countdown be a nudge to keep your inner work alive." />
   <meta name="twitter:image" content="https://i.imgur.com/2EgTWuw.jpeg" />
 
   <!-- Fonts (added Roboto for CTA) -->
@@ -58,16 +58,18 @@
 
     .overlay{
       width:100%;
-      max-width:1120px;
+      /* full width on desktop */
+      max-width:none;
       padding:18px;
       background:radial-gradient(circle at top,rgba(255,255,255,0.10),rgba(255,255,255,0.06));
       backdrop-filter:blur(2px);
     }
 
     .card{
-      max-width:980px;
-      margin:0 auto;
       width:100%;
+      /* full width on desktop; mobile overrides later */
+      max-width:none;
+      margin:0 auto;
       padding:20px 20px 18px;
       background:var(--card);
       border-radius:var(--radius-lg);
@@ -234,7 +236,7 @@
       margin-bottom:4px;
     }
 
-    .quote-author{
+    .quote-author}{
       display:flex;
       justify-content:flex-start;
       align-items:center;
@@ -471,6 +473,10 @@
             <span>Register Your Interest</span>
           </a>
         </p>
+        <p class="subtitle">
+          A gentle reminder on your screen that every moment is moving us closer to Sadhguru’s visit to Malaysia.
+          May this countdown be a nudge to keep your inner work alive.
+        </p>
       </section>
 
       <!-- Main countdown -->
@@ -490,6 +496,28 @@
         </div>
 
         <p id="eventStatus" class="count-note">
+        </p>
+      </section>
+
+      <!-- Elapsed since first volunteer meeting -->
+      <section class="secondary">
+        <div class="accent-pill">
+          <span class="accent-dot"></span>
+          First Volunteer Meeting
+        </div>
+        <p class="date-line">
+          Our first volunteer meet ended at
+          <span>23 November 2025 &middot; 8:30 PM</span>
+        </p>
+
+        <div class="count-single">
+          <div class="count-label-main">Time Since We First Met</div>
+          <div id="meetCombined" class="count-combined">
+            0 months · 0 days · 00:00:00
+          </div>
+        </div>
+        <p class="count-note">
+          Every second since that evening is part of the offering. This is how long the volunteers have already been walking this journey together.
         </p>
       </section>
 
@@ -602,14 +630,12 @@
       }
 
       // Time elapsed since first volunteer meeting
+      const meetDiff = diffInCalendarUnits(MEETING_DATE, now);
       const meetCombinedEl = document.getElementById("meetCombined");
-      if (meetCombinedEl) {
-        const meetDiff = diffInCalendarUnits(MEETING_DATE, now);
-        const meetMonthsPart = plural(meetDiff.totalMonths, "month");
-        const meetDaysPart   = plural(meetDiff.days, "day");
-        const meetTimePart   = `${pad(meetDiff.hours)}:${pad(meetDiff.minutes)}:${pad(meetDiff.seconds)}`;
-        meetCombinedEl.textContent = `${meetMonthsPart} · ${meetDaysPart} · ${meetTimePart}`;
-      }
+      const meetMonthsPart = plural(meetDiff.totalMonths, "month");
+      const meetDaysPart   = plural(meetDiff.days, "day");
+      const meetTimePart   = `${pad(meetDiff.hours)}:${pad(meetDiff.minutes)}:${pad(meetDiff.seconds)}`;
+      meetCombinedEl.textContent = `${meetMonthsPart} · ${meetDaysPart} · ${meetTimePart}`;
     }
 
     updateTimers();
