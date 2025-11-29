@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sadhguru in Malaysia 2026 — Countdown</title>
+  <title>Sadhguru in Malaysia 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
@@ -29,14 +29,14 @@
       font-family:"Nunito Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       color:var(--ink);
 
-      /* Sadhguru image as fixed background */
+      /* Desktop/tablet: Sadhguru image as fixed background */
       background-image:
         linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.85)),
         url("https://i.imgur.com/PUlWX3Q.jpeg");
       background-position:center center;
       background-size:cover;
       background-repeat:no-repeat;
-      background-attachment:fixed; /* does not move on scroll */
+      background-attachment:fixed;
 
       display:flex;
       align-items:center;
@@ -47,7 +47,6 @@
       width:100%;
       max-width:1120px;
       padding:18px;
-      /* light veil + blur for readability but keep image visible */
       background:radial-gradient(circle at top,rgba(255,255,255,0.10),rgba(255,255,255,0.06));
       backdrop-filter:blur(2px);
     }
@@ -63,9 +62,14 @@
       box-shadow:0 22px 55px rgba(0,0,0,0.35);
     }
 
-    /* Simple hero (text only, image is in background) */
+    /* Hero (text) */
     .hero{
       margin-bottom:8px;
+    }
+
+    /* Hidden hero image by default (desktop only) */
+    .hero-photo{
+      display:none;
     }
 
     .kicker{
@@ -318,18 +322,44 @@
       }
     }
 
-    /* Mobile */
+    /* Mobile: apply ALL three strategies */
     @media (max-width:640px){
+      /* 1) Simpler background (no heavy image behind) */
       body{
         align-items:flex-start;
+        background-image:linear-gradient(to bottom,#000000,#161616);
+        background-attachment:scroll;
       }
+
+      /* 2) More space around card so background frames it */
       .overlay{
-        padding:12px;
+        padding:20px;
       }
+
+      /* 3) Hero image INSIDE the card + glassmorphism */
       .card{
-        padding:16px 12px 14px;
+        padding:0 0 14px;
         border-radius:18px;
+        overflow:hidden;
+        background:rgba(255,255,255,0.78);
+        backdrop-filter:blur(6px);
+        max-width:380px;
+        margin:24px auto;
       }
+
+      .hero-photo{
+        display:block;
+        height:220px;
+        background-image:url("https://i.imgur.com/PUlWX3Q.jpeg");
+        background-position:center;
+        background-size:cover;
+      }
+
+      .hero{
+        padding:16px 14px 0;
+        margin-bottom:8px;
+      }
+
       h1{
         font-size:1.7rem;
       }
@@ -348,9 +378,12 @@
 <body>
   <div class="overlay">
     <main class="card">
+      <!-- Mobile hero image (shown only on small screens) -->
+      <div class="hero-photo" aria-hidden="true"></div>
+
       <!-- Hero (text) -->
       <div class="hero">
-        <h1>Sadhguru in Malaysia</h1>
+        <h1>Sadhguru in Malaysia 2026</h1>
         <p class="subtitle">
           A gentle reminder on your screen that every moment is moving us closer to Sadhguru’s visit to Malaysia.
           May this countdown be a nudge to keep your inner work alive.
@@ -361,9 +394,9 @@
       <section class="primary-section">
         <div class="section-title">Countdown to Sadhguru in Malaysia</div>
         <p class="date-line">
-          Main program date
+          Main program date:
           <span>26 October 2026 &middot; Malaysia</span>
-          (Tentative)
+          (tentative)
         </p>
 
         <div class="count-single">
