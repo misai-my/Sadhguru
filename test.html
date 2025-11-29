@@ -311,41 +311,42 @@
       color:var(--teal);
     }
 
-    /* CTA button */
+    /* CTA button (BIGGER + MORE PROMINENT) */
     .cta-wrap{
-      margin:12px 0 4px;
+      margin:16px 0 4px;
       text-align:center;
     }
     .cta-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
-      padding:10px 20px;
+      gap:10px;
+      padding:14px 32px;              /* bigger padding */
       border-radius:999px;
       border:none;
       background:linear-gradient(135deg,#f7b955,#e8892c);
       color:#2a1600;
-      font-weight:600;
-      font-size:.9rem;
+      font-weight:700;
+      font-size:1.05rem;              /* larger text */
       text-transform:uppercase;
-      letter-spacing:.12em;
+      letter-spacing:.14em;
       cursor:pointer;
       text-decoration:none;
-      box-shadow:0 10px 25px rgba(0,0,0,0.22);
+      box-shadow:0 14px 30px rgba(0,0,0,0.28);
       transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
+      min-width:280px;                /* ensures a chunky width on desktop */
     }
     .cta-btn:hover{
-      transform:translateY(-1px);
-      box-shadow:0 14px 32px rgba(0,0,0,0.28);
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:0 18px 36px rgba(0,0,0,0.32);
       background:linear-gradient(135deg,#ffc96a,#f08c2e);
     }
     .cta-btn:active{
-      transform:translateY(0);
-      box-shadow:0 8px 18px rgba(0,0,0,0.24);
+      transform:translateY(0) scale(0.99);
+      box-shadow:0 10px 22px rgba(0,0,0,0.26);
     }
     .cta-btn span.icon{
-      font-size:1.1rem;
+      font-size:1.2rem;
       line-height:1;
     }
 
@@ -427,6 +428,12 @@
       }
       .quote-author{
         padding-right:56px;
+      }
+
+      /* Full-width CTA on mobile */
+      .cta-btn{
+        width:100%;
+        max-width:none;
       }
     }
   </style>
