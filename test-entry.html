@@ -203,7 +203,7 @@
       <h1>Link Settings</h1>
       <p class="subtitle">
         Save a pair of URLs for the countdown page. Each save creates a new ID you can use like:
-        <code>in-Malaysia-invite.html?id=123</code>
+        <code>/Sadhguru/in-Malaysia-invite.html?id=123</code>
       </p>
 
       <form id="linkForm">
@@ -288,7 +288,7 @@
           savedIdEl.textContent = id;
 
           // Adjust this path to match your real output page path
-          const base = window.location.origin + '/in-Malaysia-invite.html';
+          const base = window.location.origin + '/Sadhguru/in-Malaysia-invite.html';
           const url = `${base}?id=${id}`;
 
           previewUrlEl.textContent = url;
