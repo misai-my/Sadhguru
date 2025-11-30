@@ -7,7 +7,7 @@
 
   <!-- Social share preview (OG + Twitter) -->
   <meta property="og:title" content="Sadhguru in Malaysia 2026" />
-  <meta property="og:description" content="A gentle reminder that every moment is moving us closer to Sadhguru’s visit to Malaysia. May this countdown be a nudge to keep your inner work alive." />
+  <meta property="og:description" content="To stay updated on any changes and be informed when registrations open, kindly register your interest here." />
   <meta property="og:image" content="https://i.imgur.com/2EgTWuw.jpeg" />
   <meta property="og:type" content="website" />
   <meta property="og:image:width" content="1200" />
@@ -15,7 +15,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sadhguru in Malaysia 2026" />
-  <meta name="twitter:description" content="A gentle reminder that every moment is moving us closer to Sadhguru’s visit to Malaysia. May this countdown be a nudge to keep your inner work alive." />
+  <meta name="twitter:description" content="To stay updated on any changes and be informed when registrations open, kindly register your interest here." />
   <meta name="twitter:image" content="https://i.imgur.com/2EgTWuw.jpeg" />
 
   <!-- Fonts (added Roboto for CTA) -->
@@ -42,7 +42,7 @@
       font-family:"Nunito Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       color:var(--ink);
 
-      /* Desktop/tablet: Sadhguru image as fixed background */
+      /* Desktop/tablet: Sadhguru image as fixed background (will be overridden by JS if DB has image_url) */
       background-image:
         linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.85)),
         url("https://i.imgur.com/2EgTWuw.jpeg");
@@ -65,9 +65,9 @@
     }
 
     .card{
-      width:100%;
-      max-width:none; /* full width on desktop; mobile overrides later */
+      max-width:none; /* full width on desktop */
       margin:0 auto;
+      width:100%;
       padding:20px 20px 18px;
       background:var(--card);
       border-radius:var(--radius-lg);
@@ -75,14 +75,14 @@
       box-shadow:0 22px 55px rgba(0,0,0,0.35);
     }
 
-    /* Hero image block (visible on desktop + mobile) */
+    /* Hero image block (desktop + mobile) */
     .hero-photo{
       margin:0 0 12px;
     }
 
     .hero-img{
       width:100%;
-      height:auto;          /* show full image, no cropping */
+      height:auto;          /* shows full image without cropping */
       display:block;
       border-radius:18px;
     }
@@ -274,7 +274,7 @@
       font-size:1.15rem;
       line-height:1;
       padding:0;
-      transition:background .2s,color .2s,transform .15s,box-shadow .15s;
+      transition:background .15s,color .15s,transform .15s,box-shadow .15s;
     }
 
     .nav-btn:hover{
@@ -370,12 +370,11 @@
       line-height:1.4;
     }
 
-    /* Desktop-only: keep full width card but narrow & center the image
-       so it doesn't feel cropped horizontally */
+    /* Desktop-only: narrow & center the hero image so it doesn't feel cropped */
     @media (min-width:900px){
       .hero-photo{
         max-width:720px;
-        margin:0 auto 16px; /* center image inside card */
+        margin:0 auto 16px;
       }
     }
 
@@ -391,19 +390,16 @@
 
     /* Mobile: lighter bg + more side padding */
     @media (max-width:640px){
-      /* 1) Simpler, lighter background */
       body{
         align-items:flex-start;
         background-image:linear-gradient(to bottom,#f7f2e9,#e5dccb);
         background-attachment:scroll;
       }
 
-      /* 2) More space around card so background frames it */
       .overlay{
         padding:20px;
       }
 
-      /* 3) Card padding + glassmorphism */
       .card{
         padding:14px 14px 14px;
         border-radius:18px;
@@ -440,7 +436,6 @@
         padding-right:56px;
       }
 
-      /* Full-width CTA on mobile */
       .cta-btn{
         width:100%;
         max-width:none;
@@ -453,9 +448,12 @@
     <main class="card">
       <!-- Hero image (desktop + mobile, full image via <img>) -->
       <div class="hero-photo">
-        <img src="https://i.imgur.com/2EgTWuw.jpeg"
-             alt="Sadhguru in Malaysia"
-             class="hero-img">
+        <img
+          src="https://i.imgur.com/2EgTWuw.jpeg"
+          alt="Sadhguru in Malaysia"
+          class="hero-img"
+          id="heroImage"
+        >
       </div>
 
       <!-- Hero (text) -->
@@ -467,22 +465,19 @@
       <!-- Intro + registration (top) -->
       <section class="reg">
         <p>
-          Please note: the program date is tentative and may change if the need arises.
-          To stay updated on any changes and be informed when registrations open,
-          kindly register your interest here:
+          Please note: the program date is tentative and details are being finalised. To stay updated and be informed when registrations open, kindly register your interest here:
         </p>
         <p class="cta-wrap">
-          <a href="https://iyg.to/eoe-eoi/555367/RY4X99"
-             target="_blank"
-             rel="noopener"
-             class="cta-btn">
+          <a
+            id="ctaButton"
+            href="https://isha.to/my/sim-eoi"
+            target="_blank"
+            rel="noopener"
+            class="cta-btn"
+          >
             <span class="icon">✶</span>
             <span>Register Your Interest</span>
           </a>
-        </p>
-        <p class="subtitle">
-          A gentle reminder on your screen that every moment is moving us closer to Sadhguru’s visit to Malaysia.
-          May this countdown be a nudge to keep your inner work alive.
         </p>
       </section>
 
@@ -491,7 +486,7 @@
         <div class="section-title">Countdown to Sadhguru in Malaysia</div>
         <p class="date-line">
           Main program date:
-          <span>26 October 2026 &middot; Malaysia</span>
+          <span>10/11 October 2026 &middot; Malaysia</span>
           (tentative)
         </p>
 
@@ -502,30 +497,7 @@
           </div>
         </div>
 
-        <p id="eventStatus" class="count-note">
-        </p>
-      </section>
-
-      <!-- Elapsed since first volunteer meeting -->
-      <section class="secondary">
-        <div class="accent-pill">
-          <span class="accent-dot"></span>
-          First Volunteer Meeting
-        </div>
-        <p class="date-line">
-          Our first volunteer meet ended at
-          <span>23 November 2025 &middot; 8:30 PM</span>
-        </p>
-
-        <div class="count-single">
-          <div class="count-label-main">Time Since We First Met</div>
-          <div id="meetCombined" class="count-combined">
-            0 months · 0 days · 00:00:00
-          </div>
-        </div>
-        <p class="count-note">
-          Every second since that evening is part of the offering. This is how long the volunteers have already been walking this journey together.
-        </p>
+        <p id="eventStatus" class="count-note"></p>
       </section>
 
       <!-- Quotes carousel -->
@@ -548,8 +520,7 @@
       <!-- Registration & disclaimer (bottom) -->
       <section class="reg">
         <p class="disclaimer">
-          By registering your interest you will receive updates on final dates, venue,
-          and related volunteer information for Sadhguru in Malaysia 2026.
+          By registering your interest you will be the first to receive updates on final dates, venue, and how to register including other related information on Sadhguru in Malaysia 2026.
         </p>
       </section>
 
@@ -566,9 +537,12 @@
     </main>
   </div>
 
+  <!-- Supabase JS v2 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <script>
     // --- Dates (local time) ---
-    const EVENT_DATE = new Date(2026, 9, 26, 0, 0, 0); // 26 October 2026
+    const EVENT_DATE = new Date(2026, 9, 10, 0, 0, 0); // 10 October 2026
     const MEETING_DATE = new Date(2025, 10, 23, 20, 30, 0); // 23 Nov 2025, 8:30 PM
 
     function diffInCalendarUnits(start, end){
@@ -635,14 +609,6 @@
           eventStatusEl.textContent  = "";
         }
       }
-
-      // Time elapsed since first volunteer meeting
-      const meetDiff = diffInCalendarUnits(MEETING_DATE, now);
-      const meetCombinedEl = document.getElementById("meetCombined");
-      const meetMonthsPart = plural(meetDiff.totalMonths, "month");
-      const meetDaysPart   = plural(meetDiff.days, "day");
-      const meetTimePart   = `${pad(meetDiff.hours)}:${pad(meetDiff.minutes)}:${pad(meetDiff.seconds)}`;
-      meetCombinedEl.textContent = `${meetMonthsPart} · ${meetDaysPart} · ${meetTimePart}`;
     }
 
     updateTimers();
@@ -655,46 +621,19 @@
       `Who and what you are is an expression of the Divine.`,
       `Your ability to love is unlimited. When you Become Love, you can hold the whole universe in your love.`,
 
-      // November 25, 2025
       `The first step you need to take is to acknowledge that, whatever happens, your Life is your Responsibility.`,
-
-      // November 23, 2025
       `If you are truly Conscious, there is only one place you can be: NOW.`,
-
-      // November 13, 2025
       `Time is slipping away for all of us at the same pace. You cannot manage time, but you can manage your Energy.`,
-
-      // November 09, 2025
       `Anything you respond to willingly becomes yours. If you consciously respond to everything you come in touch with, the entire universe becomes Yours.`,
-
-      // November 06, 2025 — ADAPTED
       `The most beautiful moments of love, creativity, music, dance and laughter happen when you step aside and allow life to flow in abandon.`,
-
-      // November 02, 2025
       `Every other creature on the planet is doing its Best. Only human beings hesitate...`,
-
-      // November 01, 2025
       `To Love the person who is next to you is the biggest challenge. To Love someone who is not here is always easy.`,
-
-      // October 31, 2025
       `Look at how much time you spend on survival aspects, and how much on creative aspects. Time is not money – Time Is Life.`,
-
-      // October 24, 2025
       `There is no need to be perfect. What is important is that you are constantly Striving to Be Better.`,
-
-      // October 22, 2025
       `If you look at the world today, lies are mainstream – Truth is a fringe phenomenon. It is time to reverse that.`,
-
-      // October 15, 2025
       `A situation becomes stressful only when you compulsively react to it.`,
-
-      // October 14, 2025
       `My only intention is that you blossom into a Full-fledged Life – that is all Life is about.`,
-
-      // October 12, 2025 — ADAPTED
       `When your humanity flows freely, you naturally reach out to life around you – not from morality, but from the nature of a human heart.`,
-
-      // October 04, 2025
       `Our presence here is just for a short period of time. We do not have to shorten it by fighting each other.`
     ];
 
@@ -751,9 +690,81 @@
       resetQuoteTimer();
     });
 
-    // Initial render & start auto-rotation
     renderQuote();
     startQuoteTimer();
+
+    // --- Supabase: dynamic button + image URLs ---
+    const SUPABASE_URL = 'https://ychesvsaszfzsqgjgibe.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljaGVzdnNhc3pmenNxZ2pnaWJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0MzEzMTIsImV4cCI6MjA4MDAwNzMxMn0.gqTfXRkdjL5W7JJKks1mB6ISVYb-ylS8a6_qkvamWAk'; // use same anon key as your settings page
+
+    const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function loadSimLinks(){
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const idParam = params.get('id');
+
+        let row = null;
+
+        if (idParam) {
+          // Try to get the specific id from ?id=...
+          const { data, error } = await client
+            .from('sim_links')
+            .select('id, button_url, image_url')
+            .eq('id', idParam)
+            .maybeSingle();
+
+          if (error) {
+            console.error('Error fetching sim_links by id:', error);
+          } else if (data) {
+            row = data;
+          }
+        }
+
+        if (!row) {
+          // Fallback: latest created row
+          const { data, error } = await client
+            .from('sim_links')
+            .select('id, button_url, image_url')
+            .order('created_at', { ascending: false })
+            .limit(1);
+
+          if (error) {
+            console.error('Error fetching latest sim_links row:', error);
+          } else if (data && data.length > 0) {
+            row = data[0];
+          }
+        }
+
+        if (!row) {
+          console.warn('No sim_links row found; using default static URLs.');
+          return;
+        }
+
+        const { button_url, image_url } = row;
+        const ctaBtn = document.getElementById('ctaButton');
+        const heroImg = document.getElementById('heroImage');
+
+        if (ctaBtn && button_url) {
+          ctaBtn.href = button_url;
+        }
+
+        if (image_url) {
+          if (heroImg) {
+            heroImg.src = image_url;
+          }
+
+          // Update body background as well to match the hero image
+          document.body.style.backgroundImage =
+            `linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.85)), url("${image_url}")`;
+        }
+
+      } catch (err) {
+        console.error('Unexpected error loading sim_links:', err);
+      }
+    }
+
+    loadSimLinks();
   </script>
 </body>
 </html>
