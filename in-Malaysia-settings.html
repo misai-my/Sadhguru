@@ -5,7 +5,6 @@
   <title>Sadhguru MY 2026 — Link Settings</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
 
@@ -215,8 +214,9 @@
 
         <div class="field">
           <label for="imageUrl">Page Image URL</label>
-          <input type="url" id="imageUrl" name="imageUrl" placeholder="https://i.imgur.com/2EgTWuw.jpeg" required />
-          <div class="hint">Customise your cover photo! This will be used for the header image and page background.</div>
+          <!-- no longer required -->
+          <input type="url" id="imageUrl" name="imageUrl" placeholder="https://i.imgur.com/2EgTWuw.jpeg" />
+          <div class="hint">Optional. Leave blank to use the default image. This will be used for the header image and page background.</div>
         </div>
 
         <div class="actions">
@@ -238,11 +238,13 @@
   </div>
 
   <script>
-    // TODO: replace with your actual Supabase details
+    // Supabase details
     const SUPABASE_URL = 'https://ychesvsaszfzsqgjgibe.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljaGVzdnNhc3pmenNxZ2pnaWJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0MzEzMTIsImV4cCI6MjA4MDAwNzMxMn0.gqTfXRkdjL5W7JJKks1mB6ISVYb-ylS8a6_qkvamWAk';
 
     const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const DEFAULT_IMAGE_URL = 'https://i.imgur.com/2EgTWuw.jpeg';
 
     const form = document.getElementById('linkForm');
     const statusEl = document.getElementById('status');
@@ -261,10 +263,11 @@
       previewBox.style.display = 'none';
 
       const button_url = form.buttonUrl.value.trim();
-      const image_url  = form.imageUrl.value.trim();
+      const rawImageUrl = form.imageUrl.value.trim();
+      const image_url = rawImageUrl || DEFAULT_IMAGE_URL; // fallback to default
 
-      if (!button_url || !image_url){
-        setStatus('Please fill in both URLs.', false);
+      if (!button_url){
+        setStatus('Please enter the button URL.', false);
         return;
       }
 
@@ -287,7 +290,6 @@
           const id = data.id;
           savedIdEl.textContent = id;
 
-          // Adjust this path to match your real output page path
           const base = window.location.origin + '/Sadhguru/in-Malaysia-invite.html';
           const url = `${base}?id=${id}`;
 
