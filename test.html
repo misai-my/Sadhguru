@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sadhguru in Malaysia 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Social share preview (OG + Twitter) -->
+  <meta property="og:title" content="Sadhguru in Malaysia 2026" />
+  <meta property="og:description" content="A gentle reminder that every moment is moving us closer to Sadhguru’s visit to Malaysia. May this countdown be a nudge to keep your inner work alive." />
+  <meta property="og:image" content="https://i.imgur.com/2EgTWuw.jpeg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sadhguru in Malaysia 2026" />
+  <meta name="twitter:description" content="A gentle reminder that every moment is moving us closer to Sadhguru’s visit to Malaysia. May this countdown be a nudge to keep your inner work alive." />
+  <meta name="twitter:image" content="https://i.imgur.com/2EgTWuw.jpeg" />
+
+  <!-- Fonts (added Roboto for CTA) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg:#000000;
+      --ink:#1c1b1a;
+      --muted:#585858;
+      --accent:#c87c10;
+      --accent-soft:rgba(200,124,16,0.3);
+      --teal:#2ea7a0;
+      --card:rgba(255,255,255,0.93);
+      --line:rgba(0,0,0,0.08);
+      --radius-lg:22px;
+      --radius-sm:12px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      min-height:100vh;
+      font-family:"Nunito Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      color:var(--ink);
+
+      /* Desktop/tablet: Sadhguru image as fixed background */
+      background-image:
+        linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.85)),
+        url("https://i.imgur.com/2EgTWuw.jpeg");
+      background-position:center center;
+      background-size:cover;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .overlay{
+      width:100%;
+      max-width:none; /* full width on desktop */
+      padding:18px;
+      background:radial-gradient(circle at top,rgba(255,255,255,0.10),rgba(255,255,255,0.06));
+      backdrop-filter:blur(2px);
+    }
+
+    .card{
+      width:100%;
+      max-width:none; /* full width on desktop; mobile overrides later */
+      margin:0 auto;
+      padding:20px 20px 18px;
+      background:var(--card);
+      border-radius:var(--radius-lg);
+      border:1px solid var(--accent-soft);
+      box-shadow:0 22px 55px rgba(0,0,0,0.35);
+    }
+
+    /* Hero image block (visible on desktop + mobile) */
+    .hero-photo{
+      margin:0 0 12px;
+    }
+
+    .hero-img{
+      width:100%;
+      height:auto;          /* show full image, no cropping */
+      display:block;
+      border-radius:18px;
+    }
+
+    /* Hero (text) */
+    .hero{
+      margin-bottom:8px;
+    }
+
+    h1{
+      font-family:"Cinzel",serif;
+      font-size:clamp(1.9rem,3.4vw,2.6rem);
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    .subtitle{
+      font-size:.95rem;
+      color:var(--muted);
+      max-width:40rem;
+      line-height:1.5;
+    }
+
+    .primary-section{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+    }
+
+    .section-title{
+      font-size:.83rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    .date-line{
+      font-size:.9rem;
+      margin-bottom:10px;
+      color:var(--muted);
+    }
+    .date-line span{
+      color:var(--accent);
+      font-weight:600;
+    }
+
+    /* Single-line countdown blocks (base style for all) */
+    .count-single{
+      padding:10px 12px;
+      border-radius:var(--radius-sm);
+      border:1px solid var(--line);
+      background:
+        linear-gradient(145deg,rgba(255,255,255,0.98),rgba(253,243,225,0.94));
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
+
+    /* Primary countdown: light red hue */
+    .primary-section .count-single{
+      background:
+        linear-gradient(145deg,rgba(255,235,235,0.98),rgba(255,215,215,0.95));
+      border-color:rgba(220,120,120,0.5);
+    }
+
+    .count-label-main{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--muted);
+    }
+
+    .count-combined{
+      font-family:"Cinzel",serif;
+      font-size:1.15rem;
+      line-height:1.4;
+    }
+
+    .count-note{
+      margin-top:6px;
+      font-size:.75rem;
+      color:var(--muted);
+    }
+
+    .secondary{
+      margin-top:18px;
+      padding-top:14px;
+      border-top:1px dashed var(--line);
+    }
+
+    .accent-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:.78rem;
+      padding:5px 9px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.97);
+      border:1px solid var(--accent-soft);
+      color:var(--accent);
+      margin-bottom:6px;
+    }
+
+    .accent-dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--teal);
+    }
+
+    /* Quotes carousel */
+    .quotes{
+      margin-top:20px;
+      padding-top:14px;
+      border-top:1px dashed var(--line);
+    }
+
+    .quotes-header{
+      font-size:.86rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+
+    .quote-card{
+      position:relative;
+      padding:14px 14px 12px;
+      border-radius:var(--radius-lg);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at top,rgba(255,255,255,0.99),rgba(252,245,231,0.96));
+    }
+
+    .quote-mark{
+      font-family:"Cinzel",serif;
+      font-size:2.2rem;
+      color:rgba(0,0,0,0.14);
+      line-height:1;
+      margin-bottom:2px;
+    }
+
+    .quote-text{
+      font-size:1rem;
+      line-height:1.6;
+      color:var(--ink);
+      margin-bottom:4px;
+    }
+
+    .quote-author{
+      display:flex;
+      justify-content:flex-start;
+      align-items:center;
+      font-size:.9rem;
+      color:#444;
+      gap:4px;
+      padding-right:72px;
+      margin-top:6px;
+    }
+
+    .quote-author span.author-name{
+      font-family:"Dancing Script",cursive;
+      font-size:1.25rem;
+      color:#333;
+    }
+
+    .quote-nav{
+      position:absolute;
+      right:10px;
+      bottom:10px;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .nav-btn{
+      border:none;
+      background:rgba(0,0,0,0.04);
+      color:var(--muted);
+      width:26px;
+      height:26px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      font-size:1.15rem;
+      line-height:1;
+      padding:0;
+      transition:background .2s,color .2s,transform .15s,box-shadow .15s;
+    }
+
+    .nav-btn:hover{
+      background:rgba(0,0,0,0.08);
+      color:var(--accent);
+      transform:translateY(-1px);
+      box-shadow:0 2px 6px rgba(0,0,0,0.12);
+    }
+
+    .nav-btn:focus-visible{
+      outline:2px solid var(--teal);
+      outline-offset:2px;
+    }
+
+    .reg{
+      margin-top:20px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      font-size:.86rem;
+    }
+
+    .reg p{
+      margin-bottom:8px;
+      color:var(--muted);
+    }
+
+    .reg a{
+      color:var(--accent);
+      text-decoration:none;
+      border-bottom:1px solid rgba(200,124,16,0.4);
+    }
+    .reg a:hover{
+      border-bottom-color:var(--teal);
+      color:var(--teal);
+    }
+
+    /* CTA button (light baby blue + Roboto, bold) */
+    .cta-wrap{
+      margin:16px 0 4px;
+      text-align:center;
+    }
+    .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 32px;
+      border-radius:999px;
+      border:none;
+      background:linear-gradient(135deg,#d7ecff,#a9d8ff); /* light baby blue */
+      color:#05345a; /* deep blue for good contrast */
+      font-family:'Roboto',system-ui,-apple-system,'Segoe UI',sans-serif;
+      font-weight:700;
+      font-size:1.05rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow:0 14px 30px rgba(0,0,0,0.22);
+      transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
+      min-width:280px;
+    }
+    .cta-btn:hover{
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:0 18px 36px rgba(0,0,0,0.27);
+      background:linear-gradient(135deg,#e2f2ff,#b4ddff);
+    }
+    .cta-btn:active{
+      transform:translateY(0) scale(0.99);
+      box-shadow:0 10px 22px rgba(0,0,0,0.24);
+    }
+    .cta-btn span.icon{
+      font-size:1.2rem;
+      line-height:1;
+    }
+
+    .disclaimer{
+      margin-top:8px;
+      font-size:.74rem;
+      color:var(--muted);
+      opacity:.9;
+    }
+
+    /* Footer notes */
+    .footer-notes{
+      margin-top:14px;
+    }
+
+    .footer-notes p{
+      font-size:.62rem;
+      color:var(--muted);
+      font-style:italic;
+      line-height:1.4;
+    }
+
+    /* Desktop-only: keep full width card but narrow & center the image
+       so it doesn't feel cropped horizontally */
+    @media (min-width:900px){
+      .hero-photo{
+        max-width:720px;
+        margin:0 auto 16px; /* center image inside card */
+      }
+    }
+
+    /* Tablet */
+    @media (max-width:900px){
+      .overlay{
+        padding:14px;
+      }
+      .card{
+        padding:18px 16px 16px;
+      }
+    }
+
+    /* Mobile: lighter bg + more side padding */
+    @media (max-width:640px){
+      /* 1) Simpler, lighter background */
+      body{
+        align-items:flex-start;
+        background-image:linear-gradient(to bottom,#f7f2e9,#e5dccb);
+        background-attachment:scroll;
+      }
+
+      /* 2) More space around card so background frames it */
+      .overlay{
+        padding:20px;
+      }
+
+      /* 3) Card padding + glassmorphism */
+      .card{
+        padding:14px 14px 14px;
+        border-radius:18px;
+        overflow:hidden;
+        background:rgba(255,255,255,0.78);
+        backdrop-filter:blur(6px);
+        max-width:380px;
+        margin:24px auto;
+      }
+
+      .hero-photo{
+        margin:0 0 12px;
+      }
+
+      .hero-img{
+        border-radius:14px;
+      }
+
+      .hero{
+        padding:0;
+        margin-bottom:8px;
+      }
+
+      h1{
+        font-size:1.7rem;
+      }
+      .subtitle{
+        font-size:.9rem;
+      }
+      .quote-text{
+        font-size:.95rem;
+      }
+      .quote-author{
+        padding-right:56px;
+      }
+
+      /* Full-width CTA on mobile */
+      .cta-btn{
+        width:100%;
+        max-width:none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <main class="card">
+      <!-- Hero image (desktop + mobile, full image via <img>) -->
+      <div class="hero-photo">
+        <img src="https://i.imgur.com/2EgTWuw.jpeg"
+             alt="Sadhguru in Malaysia"
+             class="hero-img">
+      </div>
+
+      <!-- Hero (text) -->
+      <div class="hero">
+        <p class="subtitle">
+        </p>
+      </div>
+
+      <!-- Intro + registration (top) -->
+      <section class="reg">
+        <p>
+          Please note: the program date is tentative and details are being finalised. To stay updated and be informed when registrations open, kindly register your interest here:
+        </p>
+        <p class="cta-wrap">
+          <a href="https://iyg.to/eoe-eoi/555367/RY4X99"
+             target="_blank"
+             rel="noopener"
+             class="cta-btn">
+            <span class="icon">✶</span>
+            <span>Register Your Interest</span>
+          </a>
+        </p>
+        <p class="subtitle">
+          A gentle reminder on your screen that every moment is moving us closer to Sadhguru’s visit to Malaysia.
+          May this countdown be a nudge to keep your inner work alive.
+        </p>
+      </section>
+
+      <!-- Main countdown -->
+      <section class="primary-section">
+        <div class="section-title">Countdown to Sadhguru in Malaysia</div>
+        <p class="date-line">
+          Main program date:
+          <span>10/11 October 2026 &middot; Malaysia</span>
+          (tentative)
+        </p>
+
+        <div class="count-single">
+          <div class="count-label-main">Time Remaining</div>
+          <div id="eventCombined" class="count-combined">
+            0 months · 0 days · 00:00:00
+          </div>
+        </div>
+
+        <p id="eventStatus" class="count-note">
+        </p>
+      </section>
+
+      <!-- Elapsed since first volunteer meeting -->
+      <section class="secondary">
+        <div class="accent-pill">
+          <span class="accent-dot"></span>
+          First Volunteer Meeting
+        </div>
+        <p class="date-line">
+          Our first volunteer meet ended at
+          <span>23 November 2025 &middot; 8:30 PM</span>
+        </p>
+
+        <div class="count-single">
+          <div class="count-label-main">Time Since We First Met</div>
+          <div id="meetCombined" class="count-combined">
+            0 months · 0 days · 00:00:00
+          </div>
+        </div>
+        <p class="count-note">
+          Every second since that evening is part of the offering. This is how long the volunteers have already been walking this journey together.
+        </p>
+      </section>
+
+      <!-- Quotes carousel -->
+      <section class="quotes">
+        <div class="quotes-header">Timeless wisdom from Sadhguru</div>
+        <div class="quote-card">
+          <div class="quote-mark">“</div>
+          <p id="quoteText" class="quote-text"></p>
+          <div class="quote-author">
+            <span>—</span>
+            <span class="author-name">Sadhguru</span>
+          </div>
+          <div class="quote-nav">
+            <button class="nav-btn" id="prevQuote" aria-label="Previous quote">‹</button>
+            <button class="nav-btn" id="nextQuote" aria-label="Next quote">›</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Registration & disclaimer (bottom) -->
+      <section class="reg">
+        <p class="disclaimer">
+          By registering your interest you will be the first to receive updates on final dates, venue, and how to register including other related information on Sadhguru in Malaysia 2026.
+        </p>
+      </section>
+
+      <section class="footer-notes">
+        <p>
+          A volunteer-made space for fellow seekers • Unofficial, independent, and from the heart.
+          All information & links shared here will be from official sources ONLY unless specified.
+        </p>
+        <p>
+          Love,<br>
+          -The Nothing Team-
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // --- Dates (local time) ---
+    const EVENT_DATE = new Date(2026, 9, 10, 0, 0, 0); // 10 October 2026
+    const MEETING_DATE = new Date(2025, 10, 23, 20, 30, 0); // 23 Nov 2025, 8:30 PM
+
+    function diffInCalendarUnits(start, end){
+      let s = new Date(start.getTime());
+      let e = new Date(end.getTime());
+      let future = true;
+      if (e < s){
+        future = false;
+        [s, e] = [e, s];
+      }
+
+      let years   = e.getFullYear() - s.getFullYear();
+      let months  = e.getMonth()    - s.getMonth();
+      let days    = e.getDate()     - s.getDate();
+      let hours   = e.getHours()    - s.getHours();
+      let minutes = e.getMinutes()  - s.getMinutes();
+      let seconds = e.getSeconds()  - s.getSeconds();
+
+      if (seconds < 0){ seconds += 60; minutes--; }
+      if (minutes < 0){ minutes += 60; hours--; }
+      if (hours < 0){ hours += 24; days--; }
+
+      if (days < 0){
+        const prevMonth = new Date(e.getFullYear(), e.getMonth(), 0);
+        days += prevMonth.getDate();
+        months--;
+      }
+      if (months < 0){
+        months += 12;
+        years--;
+      }
+
+      const totalMonths = years * 12 + months;
+      return { future, totalMonths, days, hours, minutes, seconds };
+    }
+
+    function pad(num){
+      return num.toString().padStart(2,"0");
+    }
+
+    function plural(value, word){
+      return value + " " + word + (value === 1 ? "" : "s");
+    }
+
+    function updateTimers(){
+      const now = new Date();
+
+      // Countdown to event
+      const eventDiff = diffInCalendarUnits(now, EVENT_DATE);
+      const eventCombinedEl = document.getElementById("eventCombined");
+      const eventStatusEl  = document.getElementById("eventStatus");
+
+      if (!eventDiff.future){
+        eventCombinedEl.textContent  = "0 months · 0 days · 00:00:00";
+        if (eventStatusEl){
+          eventStatusEl.textContent  = "Sadhguru is in Malaysia — may this be a time of profound inner transformation.";
+        }
+      } else {
+        const monthsPart = plural(eventDiff.totalMonths, "month");
+        const daysPart   = plural(eventDiff.days, "day");
+        const timePart   = `${pad(eventDiff.hours)}:${pad(eventDiff.minutes)}:${pad(eventDiff.seconds)}`;
+        eventCombinedEl.textContent = `${monthsPart} · ${daysPart} · ${timePart}`;
+        if (eventStatusEl){
+          eventStatusEl.textContent  = "";
+        }
+      }
+
+      // Time elapsed since first volunteer meeting
+      const meetDiff = diffInCalendarUnits(MEETING_DATE, now);
+      const meetCombinedEl = document.getElementById("meetCombined");
+      const meetMonthsPart = plural(meetDiff.totalMonths, "month");
+      const meetDaysPart   = plural(meetDiff.days, "day");
+      const meetTimePart   = `${pad(meetDiff.hours)}:${pad(meetDiff.minutes)}:${pad(meetDiff.seconds)}`;
+      meetCombinedEl.textContent = `${meetMonthsPart} · ${meetDaysPart} · ${meetTimePart}`;
+    }
+
+    updateTimers();
+    setInterval(updateTimers, 1000);
+
+    // --- Quotes carousel ---
+    const quotes = [
+      `What you do is not the point. It is the level of Involvement Within You that Transforms you.`,
+      `If you are truly Conscious, there is only one place you can be: NOW.`,
+      `Who and what you are is an expression of the Divine.`,
+      `Your ability to love is unlimited. When you Become Love, you can hold the whole universe in your love.`,
+
+      // November 25, 2025
+      `The first step you need to take is to acknowledge that, whatever happens, your Life is your Responsibility.`,
+
+      // November 23, 2025
+      `If you are truly Conscious, there is only one place you can be: NOW.`,
+
+      // November 13, 2025
+      `Time is slipping away for all of us at the same pace. You cannot manage time, but you can manage your Energy.`,
+
+      // November 09, 2025
+      `Anything you respond to willingly becomes yours. If you consciously respond to everything you come in touch with, the entire universe becomes Yours.`,
+
+      // November 06, 2025 — ADAPTED
+      `The most beautiful moments of love, creativity, music, dance and laughter happen when you step aside and allow life to flow in abandon.`,
+
+      // November 02, 2025
+      `Every other creature on the planet is doing its Best. Only human beings hesitate...`,
+
+      // November 01, 2025
+      `To Love the person who is next to you is the biggest challenge. To Love someone who is not here is always easy.`,
+
+      // October 31, 2025
+      `Look at how much time you spend on survival aspects, and how much on creative aspects. Time is not money – Time Is Life.`,
+
+      // October 24, 2025
+      `There is no need to be perfect. What is important is that you are constantly Striving to Be Better.`,
+
+      // October 22, 2025
+      `If you look at the world today, lies are mainstream – Truth is a fringe phenomenon. It is time to reverse that.`,
+
+      // October 15, 2025
+      `A situation becomes stressful only when you compulsively react to it.`,
+
+      // October 14, 2025
+      `My only intention is that you blossom into a Full-fledged Life – that is all Life is about.`,
+
+      // October 12, 2025 — ADAPTED
+      `When your humanity flows freely, you naturally reach out to life around you – not from morality, but from the nature of a human heart.`,
+
+      // October 04, 2025
+      `Our presence here is just for a short period of time. We do not have to shorten it by fighting each other.`
+    ];
+
+    function shuffle(arr){
+      for(let i = arr.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    const quoteTextEl = document.getElementById("quoteText");
+    const prevBtn = document.getElementById("prevQuote");
+    const nextBtn = document.getElementById("nextQuote");
+
+    let quoteIndex = 0;
+    const QUOTE_INTERVAL_MS = 5000;
+    let quoteTimerId = null;
+
+    const shuffledQuotes = shuffle([...quotes]);
+
+    function renderQuote(){
+      quoteTextEl.textContent = shuffledQuotes[quoteIndex];
+    }
+
+    function nextQuote(){
+      quoteIndex = (quoteIndex + 1) % shuffledQuotes.length;
+      renderQuote();
+    }
+
+    function prevQuote(){
+      quoteIndex = (quoteIndex - 1 + shuffledQuotes.length) % shuffledQuotes.length;
+      renderQuote();
+    }
+
+    function startQuoteTimer(){
+      quoteTimerId = setInterval(nextQuote, QUOTE_INTERVAL_MS);
+    }
+
+    function resetQuoteTimer(){
+      if(quoteTimerId !== null){
+        clearInterval(quoteTimerId);
+      }
+      startQuoteTimer();
+    }
+
+    prevBtn.addEventListener("click", () => {
+      prevQuote();
+      resetQuoteTimer();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      nextQuote();
+      resetQuoteTimer();
+    });
+
+    // Initial render & start auto-rotation
+    renderQuote();
+    startQuoteTimer();
+  </script>
+</body>
+</html>
