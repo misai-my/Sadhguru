@@ -2,370 +2,531 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Isha Volunteer Intro Kit — 01. Sadhguru & Isha</title>
+  <title>Isha Volunteer Intro Kit — Core Talking Points</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"/>
 
   <style>
     :root{
       --bg:#000000;
+      --overlay:radial-gradient(circle at top,rgba(255,255,255,0.12),rgba(0,0,0,0.88));
+      --card:#ffffff;
       --ink:#1c1b1a;
-      --muted:#585858;
+      --muted:#747474;
       --accent:#c87c10;
       --accent-soft:rgba(200,124,16,0.3);
       --teal:#2ea7a0;
-      --card:rgba(255,255,255,0.94);
-      --line:rgba(0,0,0,0.08);
+      --line:rgba(0,0,0,0.06);
       --radius-lg:22px;
       --radius-sm:12px;
+      --example-bg:#f8fafc;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
-
     body{
       min-height:100vh;
       font-family:"Nunito Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
       color:var(--ink);
-
       background-image:
-        linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.9)),
+        linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.95)),
         url("https://i.imgur.com/2EgTWuw.jpeg");
       background-position:center center;
       background-size:cover;
       background-repeat:no-repeat;
       background-attachment:fixed;
-
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:16px;
-    }
-
-    .overlay{
-      width:100%;
-      max-width:none;
       padding:18px;
-      background:radial-gradient(circle at top,rgba(255,255,255,0.10),rgba(255,255,255,0.06));
-      backdrop-filter:blur(2px);
     }
-
-    .card{
-      max-width:none;
-      margin:0 auto;
+    .shell{
       width:100%;
-      padding:20px 20px 18px;
+      max-width:1040px;
+      background:var(--overlay);
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 22px 55px rgba(0,0,0,0.6);
+      backdrop-filter:blur(4px);
+      padding:18px;
+    }
+    .card{
       background:var(--card);
       border-radius:var(--radius-lg);
       border:1px solid var(--accent-soft);
-      box-shadow:0 22px 55px rgba(0,0,0,0.35);
+      padding:20px 22px 18px;
     }
-
-    .top-row{
-      display:flex;
-      gap:20px;
-      align-items:flex-start;
-      flex-wrap:wrap;
+    header{
+      margin-bottom:16px;
     }
-
-    .hero-photo{
-      flex:0 0 260px;
-      max-width:260px;
-    }
-
-    .hero-img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:18px;
-    }
-
-    .header-block{
-      flex:1 1 260px;
-    }
-
-    .tagline-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:4px 10px;
-      border-radius:999px;
-      background:#f6f3ea;
-      border:1px solid var(--accent-soft);
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      color:var(--accent);
-      margin-bottom:8px;
-    }
-
-    .tagline-dot{
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:var(--teal);
-    }
-
-    h1{
-      font-family:"Cinzel",serif;
-      font-size:clamp(1.7rem,3vw,2.2rem);
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      margin-bottom:6px;
-    }
-
-    .subtitle{
-      font-size:.95rem;
-      color:var(--muted);
-      max-width:36rem;
-      line-height:1.5;
-      margin-bottom:8px;
-    }
-
-    .meta-line{
-      font-size:.8rem;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.16em;
-    }
-
-    .meta-line span{
-      color:var(--accent);
-      font-weight:600;
-    }
-
-    .content{
-      margin-top:18px;
-      padding-top:14px;
-      border-top:1px solid var(--line);
-      display:grid;
-      grid-template-columns:minmax(0,2fr) minmax(0,1.4fr);
-      gap:20px;
-    }
-
-    .block-title{
-      font-size:.86rem;
+    .kit-label{
+      font-size:.74rem;
       text-transform:uppercase;
       letter-spacing:.18em;
       color:var(--muted);
-      margin-bottom:6px;
+      margin-bottom:4px;
+    }
+    h1{
+      font-family:"Cinzel",serif;
+      font-size:1.7rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:4px;
+    }
+    .subtitle{
+      font-size:.9rem;
+      color:var(--muted);
+      max-width:42rem;
     }
 
-    .paragraph{
-      font-size:.92rem;
-      line-height:1.6;
+    /* Sections */
+    .section-block{
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+    }
+    .section-title{
+      font-size:.85rem;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+
+    details{
+      border-radius:var(--radius-sm);
+      border:1px solid var(--line);
+      background:#faf9f6;
       margin-bottom:10px;
+      overflow:hidden;
+    }
+    details summary{
+      list-style:none;
+      cursor:pointer;
+      padding:10px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      font-size:.9rem;
+      font-weight:600;
+      color:#333;
+    }
+    details summary::-webkit-details-marker{display:none;}
+    .summary-label{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      align-items:center;
+    }
+    .summary-pill{
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--muted);
+    }
+    .summary-main{
+      font-size:.9rem;
+    }
+    .summary-icon{
+      font-size:.9rem;
+      color:var(--muted);
+      transition:transform .18s ease;
+    }
+    details[open] .summary-icon{
+      transform:rotate(90deg);
+    }
+    .details-body{
+      border-top:1px solid var(--line);
+      padding:10px 12px 12px;
+      font-size:.9rem;
+      line-height:1.55;
+      color:#333;
     }
 
     .subheading{
-      font-weight:600;
-      margin-top:10px;
+      font-weight:700;
       margin-bottom:4px;
-      font-size:.9rem;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      color:#444;
     }
-
-    ul{
-      margin-left:1.1rem;
+    .para{
       margin-bottom:8px;
-      font-size:.9rem;
-      line-height:1.55;
+    }
+    .bullet-list{
+      margin:4px 0 8px 1.1rem;
+      padding-left:0;
+    }
+    .bullet-list li{
+      margin-bottom:4px;
     }
 
-    li + li{
-      margin-top:3px;
-    }
-
-    .note-box{
-      margin-top:6px;
-      padding:10px 11px;
-      border-radius:var(--radius-sm);
-      border:1px dashed var(--accent-soft);
-      background:linear-gradient(145deg,#fffaf0,#f5f5f5);
+    .example-note{
+      margin:6px 0 8px;
+      padding:8px 10px;
+      border-radius:10px;
+      background:var(--example-bg);
+      border-left:3px solid var(--teal);
       font-size:.85rem;
-      color:#4a4338;
+      color:#425466;
+    }
+    .example-label{
+      font-size:.75rem;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--muted);
+      margin-bottom:2px;
     }
 
-    .footer-row{
-      margin-top:18px;
-      padding-top:12px;
-      border-top:1px dashed var(--line);
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:space-between;
-      align-items:center;
+    .hint-line{
       font-size:.8rem;
       color:var(--muted);
+      margin-top:4px;
     }
 
-    .back-link{
-      text-decoration:none;
-      color:var(--accent);
-      border-bottom:1px solid rgba(200,124,16,0.4);
-    }
-
-    .back-link:hover{
-      color:var(--teal);
-      border-bottom-color:var(--teal);
-    }
-
-    .step-indicator{
-      font-size:.8rem;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-    }
-
-    @media (max-width:900px){
-      .overlay{
-        padding:14px;
-      }
-      .card{
-        padding:18px 16px 16px;
-      }
-      .content{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width:640px){
+    /* Mobile tweaks */
+    @media (max-width:720px){
       body{
-        align-items:flex-start;
-        background-image:linear-gradient(to bottom,#f7f2e9,#e5dccb);
+        padding:12px;
+        background-image:linear-gradient(to bottom,#0f1013,#040507);
         background-attachment:scroll;
       }
-      .overlay{
-        padding:20px;
+      .shell{
+        padding:10px;
       }
       .card{
-        padding:14px 14px 14px;
-        border-radius:18px;
-        background:rgba(255,255,255,0.85);
-        backdrop-filter:blur(6px);
-        max-width:420px;
-        margin:24px auto;
+        padding:16px 14px 14px;
       }
-      .hero-photo{
-        flex:1 1 100%;
-        max-width:none;
+      h1{
+        font-size:1.4rem;
+      }
+      .subtitle{
+        font-size:.86rem;
+      }
+      details summary{
+        padding:9px 10px;
+      }
+      .details-body{
+        padding:9px 10px 10px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <main class="card">
-      <div class="top-row">
-        <div class="hero-photo">
-          <img
-            src="https://i.imgur.com/2EgTWuw.jpeg"
-            alt="Sadhguru"
-            class="hero-img"
-          />
-        </div>
+  <div class="shell">
+    <div class="card">
+      <header>
+        <div class="kit-label">Isha Volunteer Intro Kit</div>
+        <h1>Core Talking Points</h1>
+        <p class="subtitle">
+          Use this page as quick-reference speaker notes. Each block can be expanded when you need it and kept collapsed on mobile for less clutter.
+        </p>
+      </header>
 
-        <div class="header-block">
-          <div class="tagline-pill">
-            <span class="tagline-dot"></span>
-            <span>Isha Volunteer Intro Kit</span>
+      <!-- CORE TALKING POINTS -->
+      <section class="section-block">
+        <div class="section-title">CORE TALKING POINTS</div>
+
+        <!-- 1. START WITH SADHGURU AS A PERSON -->
+        <details>
+          <summary>
+            <div class="summary-label">
+              <span class="summary-pill">Point 1</span>
+              <span class="summary-main">Start with Sadhguru as a person</span>
+            </div>
+            <span class="summary-icon">›</span>
+          </summary>
+          <div class="details-body">
+            <p class="subheading">1. START WITH SADHGURU AS A PERSON</p>
+            <p class="para">
+              You can begin by introducing Sadhguru as a contemporary yogi and mystic, known for bringing powerful inner tools in a very practical, down-to-earth way.
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example you could say</div>
+              <div>
+                “Instead of speaking only from scriptures or philosophy, Sadhguru always brings it down to how you can handle your mind, emotions and body right now — whether you’re a student, a parent, or a CEO.”
+              </div>
+            </div>
+
+            <ul class="bullet-list">
+              <li>He is the founder of Isha Foundation, a non-profit, volunteer-run organisation.</li>
+            </ul>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “Isha Foundation is almost entirely volunteer-driven. Even big events and programs are run by ordinary people like us who have benefited from the tools and simply want to share them.”
+              </div>
+            </div>
+
+            <ul class="bullet-list">
+              <li>He offers tools for inner wellbeing rather than asking people to believe anything.</li>
+            </ul>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “Sadhguru doesn’t ask you to believe in him or any ideology. He gives you simple practices — like specific yogic tools and ways to sit, breathe, and look at life — and says, ‘Just experiment and see what it does to you.’”
+              </div>
+            </div>
+
+            <ul class="bullet-list">
+              <li>His work spans spirituality, education, ecology, and rural upliftment.</li>
+            </ul>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “For example, apart from spiritual programs, there are schools for rural children, large tree-planting and river revitalisation efforts, and many projects to support villages and farmers. It’s a very hands-on approach to uplifting human life.”
+              </div>
+            </div>
           </div>
-          <h1>01 · Introduce Sadhguru &amp; Isha</h1>
-          <p class="subtitle">
-            This page helps you give a simple, grounded introduction to who Sadhguru is,
-            what Isha Foundation does, and why Inner Engineering and other offerings
-            matter for people in your life.
-          </p>
-          <p class="meta-line">
-            Audience: <span>Friends, family &amp; colleagues hearing about Sadhguru/Isha for the first time.</span>
-          </p>
-        </div>
-      </div>
+        </details>
 
-      <section class="content">
-        <!-- Left column: main talking points -->
-        <div>
-          <div class="block-title">Core talking points</div>
+        <!-- 2. EXPLAIN WHAT ISHA FOUNDATION IS -->
+        <details>
+          <summary>
+            <div class="summary-label">
+              <span class="summary-pill">Point 2</span>
+              <span class="summary-main">Explain what Isha Foundation is</span>
+            </div>
+            <span class="summary-icon">›</span>
+          </summary>
+          <div class="details-body">
+            <p class="subheading">2. EXPLAIN WHAT ISHA FOUNDATION IS</p>
+            <p class="para">
+              Isha is a global, volunteer-based organisation dedicated to human wellbeing. It offers classical yoga programs and runs many social and environmental projects.
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “You’ll find Isha centres in India and around the world. Everywhere it’s the same spirit — volunteers offering classical yoga and different initiatives to support people’s physical, mental, and inner wellbeing.”
+              </div>
+            </div>
 
-          <div class="subheading">1. Start with Sadhguru as a person</div>
-          <p class="paragraph">
-            You can begin by introducing Sadhguru as a contemporary yogi and mystic, known
-            for bringing powerful inner tools in a very practical, down-to-earth way.
-          </p>
-          <ul>
-            <li>He is the founder of Isha Foundation, a non-profit, volunteer-run organisation.</li>
-            <li>He offers tools for inner wellbeing rather than asking people to believe anything.</li>
-            <li>His work spans spirituality, education, ecology, and rural upliftment.</li>
-          </ul>
+            <ul class="bullet-list">
+              <li>Centres and ashrams where people can learn powerful yogic practices.</li>
+            </ul>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “At the Isha Yoga Center, people can do programs ranging from simple weekend workshops to immersive retreats where you learn practices that you can continue at home every day.”
+              </div>
+            </div>
 
-          <div class="subheading">2. Explain what Isha Foundation is</div>
-          <p class="paragraph">
-            Isha is a global, volunteer-based organisation dedicated to human wellbeing.
-            It offers classical yoga programs and runs many social and environmental projects.
-          </p>
-          <ul>
-            <li>Centres and ashrams where people can learn powerful yogic practices.</li>
-            <li>Programs like Inner Engineering that help people handle stress, anxiety,
-              and the pressures of modern life.</li>
-            <li>Initiatives such as education projects and large-scale ecology movements.</li>
-          </ul>
+            <ul class="bullet-list">
+              <li>Programs like Inner Engineering that help people handle stress, anxiety, and the pressures of modern life.</li>
+            </ul>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “For many of us, Inner Engineering was the first step. It helped us handle stress, sleep better, and respond more calmly at work and at home — without changing our jobs or families, just changing how we experience things inside.”
+              </div>
+            </div>
 
-          <div class="subheading">3. Keep it relatable</div>
-          <p class="paragraph">
-            For most people, the best entry point is how this has touched your own life.
-            After you share who Sadhguru and Isha are, bring it back to your experience.
-          </p>
-          <ul>
-            <li>What changed for you after Inner Engineering or other programs?</li>
-            <li>How has your day-to-day life, relationships, or work been affected?</li>
-            <li>One or two simple examples are often more powerful than long explanations.</li>
-          </ul>
-
-          <div class="note-box">
-            <strong>Volunteer tip:</strong> Let the other person speak. Ask what they are
-            looking for in their own life — more balance, clarity, joy, health — and share
-            how these tools supported you in that direction.
+            <ul class="bullet-list">
+              <li>Initiatives such as education projects and large-scale ecology movements.</li>
+            </ul>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “Isha is also behind education projects for rural children and big ecological movements like large-scale tree planting and soil revitalisation efforts, so the impact is both inner and outer.”
+              </div>
+            </div>
           </div>
-        </div>
+        </details>
 
-        <!-- Right column: structure for sharings / Q&A -->
-        <div>
-          <div class="block-title">How to use this page</div>
+        <!-- 3. KEEP IT RELATABLE -->
+        <details>
+          <summary>
+            <div class="summary-label">
+              <span class="summary-pill">Point 3</span>
+              <span class="summary-main">Keep it relatable</span>
+            </div>
+            <span class="summary-icon">›</span>
+          </summary>
+          <div class="details-body">
+            <p class="subheading">3. KEEP IT RELATABLE</p>
+            <p class="para">
+              For most people, the best entry point is how this has touched your own life. After you share who Sadhguru and Isha are, bring it back to your experience.
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example framing</div>
+              <div>
+                “After hearing all this, what usually connects most is a simple sharing: ‘This is how it changed me.’ People remember your experience more than a long list of activities.”
+              </div>
+            </div>
 
-          <div class="subheading">Suggested 3–5 minute flow</div>
-          <ol style="margin-left:1.1rem;font-size:.9rem;line-height:1.55;padding-left:0;">
-            <li><strong>30–45 seconds:</strong> Who is Sadhguru (person, not a concept).</li>
-            <li><strong>60–90 seconds:</strong> What is Isha and what it offers.</li>
-            <li><strong>60–90 seconds:</strong> Your personal experience &amp; key change.</li>
-            <li><strong>30–60 seconds:</strong> One simple next step they can take.</li>
-          </ol>
+            <p class="para">
+              What changed for you after Inner Engineering or other programs?
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “Before Inner Engineering, I used to get overwhelmed very easily — small things at work would stay in my head the whole night. After doing the program and practicing regularly, I noticed I could go through the same situations but stay much more stable inside.”
+              </div>
+            </div>
 
-          <div class="subheading" style="margin-top:10px;">Common questions to be ready for</div>
-          <ul>
-            <li>“Is this a religion or do I have to believe something?”</li>
-            <li>“Is it safe to do these programs?”</li>
-            <li>“How much time or commitment does it need?”</li>
-          </ul>
-          <p class="paragraph">
-            You do not need to answer everything in depth. It is enough to share what you
-            know clearly, and direct them to official Isha pages or volunteers when needed.
-          </p>
+            <p class="para">
+              How has your day-to-day life, relationships, or work been affected?
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “In my day-to-day life, I don’t react as quickly as before. With family, I find it easier to listen instead of arguing. At work, my focus and efficiency improved because my mind is not constantly scattered.”
+              </div>
+            </div>
 
-          <div class="note-box">
-            <strong>Anchor line you can use:</strong><br/>
-            “I am not here to convince you of anything. I have simply seen that these tools
-            have helped me. If you feel it could be useful for you, I can share how to explore it.”
+            <p class="para">
+              One or two simple examples are often more powerful than long explanations.
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “You could say something as simple as: ‘Earlier I used to wake up already feeling tired and anxious. Now, after doing my practices, I start the day with more clarity and energy.’ Short, real stories like that touch people.”
+              </div>
+            </div>
+
+            <p class="para">
+              Volunteer tip: Let the other person speak. Ask what they are looking for in their own life — more balance, clarity, joy, health — and share how these tools supported you in that direction.
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example question</div>
+              <div>
+                “You can gently ask, ‘In your own life right now, what would you like more of — calmness, energy, focus, better health?’ Then you can add, ‘For me, these practices helped exactly in that area, that’s why I continue to do them.’”
+              </div>
+            </div>
           </div>
-        </div>
+        </details>
       </section>
 
-      <div class="footer-row">
-        <a href="index.html" class="back-link">← Back to Isha Volunteer Intro Kit dashboard</a>
-        <span class="step-indicator">Next: 02 · Introducing Inner Engineering</span>
-      </div>
-    </main>
+      <!-- HOW TO USE THIS PAGE -->
+      <section class="section-block">
+        <div class="section-title">HOW TO USE THIS PAGE</div>
+
+        <details>
+          <summary>
+            <div class="summary-label">
+              <span class="summary-pill">Flow</span>
+              <span class="summary-main">Suggested 3–5 minute flow</span>
+            </div>
+            <span class="summary-icon">›</span>
+          </summary>
+          <div class="details-body">
+            <p class="subheading">SUGGESTED 3–5 MINUTE FLOW</p>
+
+            <p class="para">
+              30–45 seconds: Who is Sadhguru (person, not a concept).
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “Sadhguru is a contemporary yogi and mystic who has created powerful inner tools to help people handle their mind, emotions, and body. He’s the founder of Isha Foundation, which is a volunteer-run non-profit.”
+              </div>
+            </div>
+
+            <p class="para">
+              60–90 seconds: What is Isha and what it offers.
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “Isha offers classical yoga programs like Inner Engineering, which help people deal with stress and find clarity, and also runs many projects in education, ecology, and rural upliftment. It’s a global volunteer-based organisation dedicated to human wellbeing.”
+              </div>
+            </div>
+
+            <p class="para">
+              60–90 seconds: Your personal experience & key change.
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “After doing Inner Engineering, I noticed my anger reduced, my sleep improved, and I became more joyful without any external change. That’s why I felt it was worth volunteering so others can experience this too.”
+              </div>
+            </div>
+
+            <p class="para">
+              30–60 seconds: One simple next step they can take.
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “If any of this resonates with you, the simplest next step is to try Inner Engineering or even start with a short program/online session. I can share the official page where you can explore upcoming programs.”
+              </div>
+            </div>
+
+            <p class="hint-line">
+              Tip: You don’t have to say it exactly like this. Use the timing as a guide and adapt the language to your own way of speaking.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- COMMON QUESTIONS -->
+      <section class="section-block">
+        <div class="section-title">COMMON QUESTIONS TO BE READY FOR</div>
+
+        <details>
+          <summary>
+            <div class="summary-label">
+              <span class="summary-pill">FAQ</span>
+              <span class="summary-main">Typical questions & anchor line</span>
+            </div>
+            <span class="summary-icon">›</span>
+          </summary>
+          <div class="details-body">
+            <p class="subheading">COMMON QUESTIONS TO BE READY FOR</p>
+
+            <p class="para">
+              “Is this a religion or do I have to believe something?”
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example response</div>
+              <div>
+                “You don’t have to believe anything. These are tools for inner wellbeing, like a technology for your body and mind. You simply practice and see what happens within you — no belief or conversion is required.”
+              </div>
+            </div>
+
+            <p class="para">
+              “Is it safe to do these programs?”
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example response</div>
+              <div>
+                “The programs are designed and refined over many years, and millions of people across different countries and backgrounds have done them. If someone has a specific medical condition, they are guided to follow the health guidelines and, if needed, check with their doctor.”
+              </div>
+            </div>
+
+            <p class="para">
+              “How much time or commitment does it need?”
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example response</div>
+              <div>
+                “Most foundational programs are structured so that even people with busy schedules can do them. After that, the daily practices usually take a limited amount of time each day, like any other health routine — but you can experience benefit even from that small investment of time.”
+              </div>
+            </div>
+
+            <p class="para">
+              You do not need to answer everything in depth. It is enough to share what you know clearly, and direct them to official Isha pages or volunteers when needed.
+            </p>
+            <div class="example-note">
+              <div class="example-label">Example</div>
+              <div>
+                “If you’re not sure, you can simply say: ‘I don’t know the full technical explanation, but I can share the official link or connect you with someone who can guide you further.’ That’s perfectly fine.”
+              </div>
+            </div>
+
+            <p class="para">
+              Anchor line you can use:<br>
+              “I am not here to convince you of anything. I have simply seen that these tools have helped me. If you feel it could be useful for you, I can share how to explore it.”
+            </p>
+            <div class="example-note">
+              <div class="example-label">How you might feel using this</div>
+              <div>
+                This line keeps the conversation open and respectful. You’re simply sharing what has worked for you and leaving the choice completely with them.
+              </div>
+            </div>
+          </div>
+        </details>
+      </section>
+    </div>
   </div>
 </body>
 </html>
