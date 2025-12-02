@@ -2,26 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Isha Volunteer Intro Kit</title>
+  <title>Isha Volunteer Intro Kit — 01. Sadhguru & Isha</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Cinzel:wght@500;700&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
 
   <style>
     :root{
       --bg:#000000;
-      --panel:rgba(20,20,24,0.9);
-      --card:#ffffff;
       --ink:#1c1b1a;
-      --muted:#8d8d8d;
+      --muted:#585858;
       --accent:#c87c10;
       --accent-soft:rgba(200,124,16,0.3);
-      --brand-btn1:#d7ecff;
-      --brand-btn2:#a9d8ff;
-      --brand-btn-text:#05345a;
-      --line:rgba(255,255,255,0.06);
-      --radius-lg:20px;
+      --teal:#2ea7a0;
+      --card:rgba(255,255,255,0.94);
+      --line:rgba(0,0,0,0.08);
+      --radius-lg:22px;
       --radius-sm:12px;
     }
 
@@ -30,228 +27,345 @@
     body{
       min-height:100vh;
       font-family:"Nunito Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      color:var(--ink);
+
       background-image:
-        linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.9)),
+        linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.9)),
         url("https://i.imgur.com/2EgTWuw.jpeg");
       background-position:center center;
       background-size:cover;
       background-repeat:no-repeat;
       background-attachment:fixed;
+
       display:flex;
       align-items:center;
       justify-content:center;
-      color:#f5f5f5;
       padding:16px;
     }
 
     .overlay{
       width:100%;
-      max-width:980px;
-      background:radial-gradient(circle at top,rgba(255,255,255,0.12),rgba(0,0,0,0.78));
-      border-radius:var(--radius-lg);
-      border:1px solid rgba(255,255,255,0.1);
-      box-shadow:0 22px 55px rgba(0,0,0,0.7);
-      backdrop-filter:blur(4px);
+      max-width:none;
       padding:18px;
+      background:radial-gradient(circle at top,rgba(255,255,255,0.10),rgba(255,255,255,0.06));
+      backdrop-filter:blur(2px);
     }
 
     .card{
-      background:var(--card);
-      color:var(--ink);
-      border-radius:var(--radius-lg);
+      max-width:none;
+      margin:0 auto;
+      width:100%;
       padding:20px 20px 18px;
+      background:var(--card);
+      border-radius:var(--radius-lg);
       border:1px solid var(--accent-soft);
+      box-shadow:0 22px 55px rgba(0,0,0,0.35);
     }
 
-    header{
-      margin-bottom:14px;
+    .top-row{
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+
+    .hero-photo{
+      flex:0 0 260px;
+      max-width:260px;
+    }
+
+    .hero-img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:18px;
+    }
+
+    .header-block{
+      flex:1 1 260px;
+    }
+
+    .tagline-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:#f6f3ea;
+      border:1px solid var(--accent-soft);
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--accent);
+      margin-bottom:8px;
+    }
+
+    .tagline-dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:var(--teal);
     }
 
     h1{
       font-family:"Cinzel",serif;
-      font-size:1.8rem;
-      letter-spacing:.16em;
+      font-size:clamp(1.7rem,3vw,2.2rem);
+      letter-spacing:.10em;
       text-transform:uppercase;
       margin-bottom:6px;
     }
 
     .subtitle{
-      font-size:.9rem;
-      color:var(--muted);
-      max-width:44rem;
-      line-height:1.5;
-    }
-
-    .section-label{
-      margin-top:18px;
-      font-size:.8rem;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      color:var(--muted);
-    }
-
-    .buttons-grid{
-      margin-top:10px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-      gap:12px;
-    }
-
-    .dash-btn{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      justify-content:center;
-      gap:4px;
-      padding:12px 14px;
-      border-radius:16px;
-      text-decoration:none;
-      border:1px solid rgba(0,0,0,0.06);
-      background:linear-gradient(135deg,var(--brand-btn1),var(--brand-btn2));
-      color:var(--brand-btn-text);
-      font-family:'Roboto',system-ui,-apple-system,'Segoe UI',sans-serif;
-      box-shadow:0 10px 24px rgba(0,0,0,0.18);
-      transition:transform .15s, box-shadow .15s, background .2s;
-    }
-
-    .dash-btn:hover{
-      transform:translateY(-1px) scale(1.01);
-      box-shadow:0 14px 30px rgba(0,0,0,0.25);
-      background:linear-gradient(135deg,#e2f2ff,#b4ddff);
-    }
-
-    .dash-btn-title{
-      font-weight:700;
       font-size:.95rem;
-      text-transform:uppercase;
-      letter-spacing:.12em;
+      color:var(--muted);
+      max-width:36rem;
+      line-height:1.5;
+      margin-bottom:8px;
     }
 
-    .dash-btn-desc{
-      font-size:.82rem;
-      opacity:.85;
-    }
-
-    .dash-tag{
-      font-size:.72rem;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      opacity:.8;
-    }
-
-    .footer-note{
-      margin-top:16px;
-      padding-top:12px;
-      border-top:1px dashed #ddd;
+    .meta-line{
       font-size:.8rem;
       color:var(--muted);
-      line-height:1.5;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+    }
+
+    .meta-line span{
+      color:var(--accent);
+      font-weight:600;
+    }
+
+    .content{
+      margin-top:18px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      display:grid;
+      grid-template-columns:minmax(0,2fr) minmax(0,1.4fr);
+      gap:20px;
+    }
+
+    .block-title{
+      font-size:.86rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    .paragraph{
+      font-size:.92rem;
+      line-height:1.6;
+      margin-bottom:10px;
+    }
+
+    .subheading{
+      font-weight:600;
+      margin-top:10px;
+      margin-bottom:4px;
+      font-size:.9rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:#444;
+    }
+
+    ul{
+      margin-left:1.1rem;
+      margin-bottom:8px;
+      font-size:.9rem;
+      line-height:1.55;
+    }
+
+    li + li{
+      margin-top:3px;
+    }
+
+    .note-box{
+      margin-top:6px;
+      padding:10px 11px;
+      border-radius:var(--radius-sm);
+      border:1px dashed var(--accent-soft);
+      background:linear-gradient(145deg,#fffaf0,#f5f5f5);
+      font-size:.85rem;
+      color:#4a4338;
+    }
+
+    .footer-row{
+      margin-top:18px;
+      padding-top:12px;
+      border-top:1px dashed var(--line);
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:space-between;
+      align-items:center;
+      font-size:.8rem;
+      color:var(--muted);
+    }
+
+    .back-link{
+      text-decoration:none;
+      color:var(--accent);
+      border-bottom:1px solid rgba(200,124,16,0.4);
+    }
+
+    .back-link:hover{
+      color:var(--teal);
+      border-bottom-color:var(--teal);
+    }
+
+    .step-indicator{
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+    }
+
+    @media (max-width:900px){
+      .overlay{
+        padding:14px;
+      }
+      .card{
+        padding:18px 16px 16px;
+      }
+      .content{
+        grid-template-columns:1fr;
+      }
     }
 
     @media (max-width:640px){
+      body{
+        align-items:flex-start;
+        background-image:linear-gradient(to bottom,#f7f2e9,#e5dccb);
+        background-attachment:scroll;
+      }
       .overlay{
-        padding:12px;
+        padding:20px;
       }
       .card{
-        padding:16px 14px 14px;
+        padding:14px 14px 14px;
+        border-radius:18px;
+        background:rgba(255,255,255,0.85);
+        backdrop-filter:blur(6px);
+        max-width:420px;
+        margin:24px auto;
       }
-      h1{
-        font-size:1.4rem;
+      .hero-photo{
+        flex:1 1 100%;
+        max-width:none;
       }
     }
   </style>
 </head>
 <body>
   <div class="overlay">
-    <div class="card">
-      <header>
-        <h1>Isha Volunteer Intro Kit</h1>
-        <p class="subtitle">
-          A compact space to access all key materials to introduce Inner Engineering, Miracle of Mind,
-          Sadhguru, and Isha. Tap any section below to open the resource you need in the moment.
-        </p>
-      </header>
+    <main class="card">
+      <div class="top-row">
+        <div class="hero-photo">
+          <img
+            src="https://i.imgur.com/2EgTWuw.jpeg"
+            alt="Sadhguru"
+            class="hero-img"
+          />
+        </div>
 
-      <div class="section-label">Core Sections</div>
-      <div class="buttons-grid">
-        <!-- 1. Introduce Sadhguru & Isha Foundation -->
-        <a class="dash-btn" href="intro-sadhguru-isha.html" target="_blank">
-          <span class="dash-tag">Section 01</span>
-          <span class="dash-btn-title">Introduce Sadhguru &amp; Isha</span>
-          <span class="dash-btn-desc">
-            Key points and resources to present Sadhguru and Isha Foundation clearly and simply.
-          </span>
-        </a>
-
-        <!-- 2. Introduce Inner Engineering -->
-        <a class="dash-btn" href="intro-inner-engineering.html" target="_blank">
-          <span class="dash-tag">Section 02</span>
-          <span class="dash-btn-title">Introduce Inner Engineering</span>
-          <span class="dash-btn-desc">
-            Overview of Inner Engineering, what it offers, and who it is for.
-          </span>
-        </a>
-
-        <!-- 3. Share: Your Experience -->
-        <a class="dash-btn" href="share-your-experience.html" target="_blank">
-          <span class="dash-tag">Section 03</span>
-          <span class="dash-btn-title">Share Your Experience</span>
-          <span class="dash-btn-desc">
-            Prompts to help you share your own journey authentically and effectively.
-          </span>
-        </a>
-
-        <!-- 4. Share: Others' Experience -->
-        <a class="dash-btn" href="share-others-experience.html" target="_blank">
-          <span class="dash-tag">Section 04</span>
-          <span class="dash-btn-title">Share Others’ Experiences</span>
-          <span class="dash-btn-desc">
-            Stories, sharings, and testimonials you can use based on who you are speaking with.
-          </span>
-        </a>
-
-        <!-- 5. Referral: Discount for IE Online -->
-        <a class="dash-btn" href="referral-ie-online.html" target="_blank">
-          <span class="dash-tag">Section 05</span>
-          <span class="dash-btn-title">Referral &amp; Discounts</span>
-          <span class="dash-btn-desc">
-            How to offer referral links or discounts for Inner Engineering Online.
-          </span>
-        </a>
-
-        <!-- 6. Experience Miracle of Mind -->
-        <a class="dash-btn" href="experience-mom.html" target="_blank">
-          <span class="dash-tag">Section 06</span>
-          <span class="dash-btn-title">Experience Miracle of Mind</span>
-          <span class="dash-btn-desc">
-            Content and guidance to introduce Miracle of Mind and invite people to try it.
-          </span>
-        </a>
-
-        <!-- 7. Meditate Together -->
-        <a class="dash-btn" href="meditate-together.html" target="_blank">
-          <span class="dash-tag">Section 07</span>
-          <span class="dash-btn-title">Meditate Together</span>
-          <span class="dash-btn-desc">
-            Invite others to sit for a short practice or meditation session with you.
-          </span>
-        </a>
-
-        <!-- 8. Sadhguru in Malaysia 2026 -->
-        <a class="dash-btn" href="sadhguru-malaysia-2026.html" target="_blank">
-          <span class="dash-tag">Section 08</span>
-          <span class="dash-btn-title">Sadhguru in Malaysia 2026</span>
-          <span class="dash-btn-desc">
-            Details and links connected to Sadhguru’s upcoming visit &amp; Ecstasy of Enlightenment.
-          </span>
-        </a>
+        <div class="header-block">
+          <div class="tagline-pill">
+            <span class="tagline-dot"></span>
+            <span>Isha Volunteer Intro Kit</span>
+          </div>
+          <h1>01 · Introduce Sadhguru &amp; Isha</h1>
+          <p class="subtitle">
+            This page helps you give a simple, grounded introduction to who Sadhguru is,
+            what Isha Foundation does, and why Inner Engineering and other offerings
+            matter for people in your life.
+          </p>
+          <p class="meta-line">
+            Audience: <span>Friends, family &amp; colleagues hearing about Sadhguru/Isha for the first time.</span>
+          </p>
+        </div>
       </div>
 
-      <div class="footer-note">
-        This kit is an evolving resource. As sharings and materials grow, new buttons or links can be added here.
-        Feel free to suggest updates so the Intro Kit supports volunteers in every kind of conversation.
+      <section class="content">
+        <!-- Left column: main talking points -->
+        <div>
+          <div class="block-title">Core talking points</div>
+
+          <div class="subheading">1. Start with Sadhguru as a person</div>
+          <p class="paragraph">
+            You can begin by introducing Sadhguru as a contemporary yogi and mystic, known
+            for bringing powerful inner tools in a very practical, down-to-earth way.
+          </p>
+          <ul>
+            <li>He is the founder of Isha Foundation, a non-profit, volunteer-run organisation.</li>
+            <li>He offers tools for inner wellbeing rather than asking people to believe anything.</li>
+            <li>His work spans spirituality, education, ecology, and rural upliftment.</li>
+          </ul>
+
+          <div class="subheading">2. Explain what Isha Foundation is</div>
+          <p class="paragraph">
+            Isha is a global, volunteer-based organisation dedicated to human wellbeing.
+            It offers classical yoga programs and runs many social and environmental projects.
+          </p>
+          <ul>
+            <li>Centres and ashrams where people can learn powerful yogic practices.</li>
+            <li>Programs like Inner Engineering that help people handle stress, anxiety,
+              and the pressures of modern life.</li>
+            <li>Initiatives such as education projects and large-scale ecology movements.</li>
+          </ul>
+
+          <div class="subheading">3. Keep it relatable</div>
+          <p class="paragraph">
+            For most people, the best entry point is how this has touched your own life.
+            After you share who Sadhguru and Isha are, bring it back to your experience.
+          </p>
+          <ul>
+            <li>What changed for you after Inner Engineering or other programs?</li>
+            <li>How has your day-to-day life, relationships, or work been affected?</li>
+            <li>One or two simple examples are often more powerful than long explanations.</li>
+          </ul>
+
+          <div class="note-box">
+            <strong>Volunteer tip:</strong> Let the other person speak. Ask what they are
+            looking for in their own life — more balance, clarity, joy, health — and share
+            how these tools supported you in that direction.
+          </div>
+        </div>
+
+        <!-- Right column: structure for sharings / Q&A -->
+        <div>
+          <div class="block-title">How to use this page</div>
+
+          <div class="subheading">Suggested 3–5 minute flow</div>
+          <ol style="margin-left:1.1rem;font-size:.9rem;line-height:1.55;padding-left:0;">
+            <li><strong>30–45 seconds:</strong> Who is Sadhguru (person, not a concept).</li>
+            <li><strong>60–90 seconds:</strong> What is Isha and what it offers.</li>
+            <li><strong>60–90 seconds:</strong> Your personal experience &amp; key change.</li>
+            <li><strong>30–60 seconds:</strong> One simple next step they can take.</li>
+          </ol>
+
+          <div class="subheading" style="margin-top:10px;">Common questions to be ready for</div>
+          <ul>
+            <li>“Is this a religion or do I have to believe something?”</li>
+            <li>“Is it safe to do these programs?”</li>
+            <li>“How much time or commitment does it need?”</li>
+          </ul>
+          <p class="paragraph">
+            You do not need to answer everything in depth. It is enough to share what you
+            know clearly, and direct them to official Isha pages or volunteers when needed.
+          </p>
+
+          <div class="note-box">
+            <strong>Anchor line you can use:</strong><br/>
+            “I am not here to convince you of anything. I have simply seen that these tools
+            have helped me. If you feel it could be useful for you, I can share how to explore it.”
+          </div>
+        </div>
+      </section>
+
+      <div class="footer-row">
+        <a href="index.html" class="back-link">← Back to Isha Volunteer Intro Kit dashboard</a>
+        <span class="step-indicator">Next: 02 · Introducing Inner Engineering</span>
       </div>
-    </div>
+    </main>
   </div>
 </body>
 </html>
